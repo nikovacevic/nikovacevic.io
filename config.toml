@@ -7,9 +7,8 @@ theme = "hugo-lithium"
     post = "/:year/:month/:day/:title/"
     page = "/:title/"
 
-[[menu.main]]
-    name = "About"
-    url = "/about/"
+# TODO About
+
 [[menu.main]]
     name = "GitHub"
     url = "https://github.com/nikovacevic"
