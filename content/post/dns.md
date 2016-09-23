@@ -1,7 +1,7 @@
 +++
 date = "2016-09-16T18:18:32-06:00"
 title = "Domain Name System"
-tags = ["DNS", "networking", "Internet"]
+tags = ["DNS", "networking", "domains"]
 +++
 
 If you're going to publish a website about learning, you're going to need to learn how to publish a website, right?  There is no better place to start than DNS.
