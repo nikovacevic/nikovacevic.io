@@ -14,12 +14,11 @@ theme = "hugo-lithium"
     name = "GitHub"
     url = "https://github.com/nikovacevic"
 [[menu.main]]
+    name = "Strava"
+    url = "https://strava.com/athletes/6476954"
+[[menu.main]]
     name = "Twitter"
     url = "https://twitter.com/NikoKovacevic"
-
-[[menu.title]]
-    name = "RUN"
-    url = "https://run.nikovacevic.io"
 
 [params]
     description = "Niko Kovacevic"
