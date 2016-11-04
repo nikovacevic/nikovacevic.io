@@ -45,8 +45,21 @@ img {
 }
 
 code {
-  max-width: 100%;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+}
+pre code {
+  display: inline-block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
   overflow-x: scroll;
+  background: #FCFCFC;
+  border: 1px solid #EEE;
+  font-size: 16px;
+  line-height: 1.4em;
 }
 
 .hidden {
