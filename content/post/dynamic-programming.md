@@ -30,13 +30,7 @@ func Fibonacci (n int) int {
 
 Drawing a recursion tree illustrates the inefficiency. Taking `Fibonacci(6)` as a simple and small example, how many different trees end up splitting on `F(3)`? Three. `F(2)`? Five. Instances of `F(1)` and `F(0)` are innocuous because they return in constant time, but instances of `F(x) | x > 1` spawn two branches, adding to the enormity of our recursion tree.
 
-[image here]  
-6  
-5 4  
-43 32  
-32 21 21 10  
-21 10 10  
-10  
+![Naïve Fibonacci is exponantial][2016-11-04-dp-01]
 
 Rather than calculating the solution to all instances of each `F(x) | x > 1` subproblem, we can calculate the solution to the first instance, remember that solution, and return it in constant time for all subsequent instances. Updating our code and our tree takes little effort, but yields enormous gains in terms of asymptotic efficiency.
 
@@ -51,14 +45,7 @@ func Fibonacci (n int, F []int) int {
 }
 ```
 
-[image]
-          6  
-      5       4  
-   4     3
-  3 2
- 2 1
-1 0
- 
+![DP Fibonacci is polynomial][2016-11-04-dp-02]
 
 Identifying repetitive subproblems and memoizing the solutions to their subproblems, is the simple magic of dynamic programming. As the updated tree diagram exemplifies, we have `n` layers, but with only 2 constant time operations each, resulting in `Θ(n)` runtime.
 
@@ -76,14 +63,15 @@ func Fibonacci (n int) int {
 }
 ```
 
-[image]
-0 = 1  
-1 = 1  
-2 = 1 + 1 = 2  
-3 = 2 + 1 = 3  
-4 = 3 + 2 = 5  
-5 = 3 + 5 = 8  
-6 = 5 + 8 = 13  
+```
+F(0) = 1
+F(1) = 1
+F(2) = F(1) + F(0) = 1 + 1 = 2
+F(3) = F(2) + F(1) = 2 + 1 = 3
+F(4) = F(3) + F(2) = 3 + 2 = 5
+F(5) = F(4) + F(3) = 3 + 5 = 8
+F(6) = F(5) + F(4) = 5 + 8 = 13
+```
 
 The Fibonacci example is utterly digestible, but offers little excitement. However, it will help us to discuss the structure of problems similarly well-suited to dynamic programming solutions.
 
@@ -272,3 +260,6 @@ According to Erik Demaine, the name given by the inventor of dynamic programming
 10. [Wikipedia: Optimal substructure # problems with optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure#Problems_with_optimal_substructure)
 
 11. [Wikipedia: Optimal substructure # problems without optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure#Problems_without_optimal_substructure)
+
+[2016-11-04-dp-01]: /images/2016-11-04-dp-01.jpg
+[2016-11-04-dp-02]: /images/2016-11-04-dp-02.jpg
