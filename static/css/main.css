@@ -185,6 +185,10 @@ ul#nav-title-dropdown-menu li a:focus {
   list-style: none;
 }
 
+.left {
+  float: left;
+}
+
 .nav-links li {
   display: inline-block;
   margin: 0 0 0 15px;
@@ -197,6 +201,10 @@ ul#nav-title-dropdown-menu li a:focus {
 .nav-links a {
   text-decoration: none;
   color: #111;
+}
+
+.nav-links a.active {
+  border-bottom: 3px solid #111;
 }
 
 .nav-links a:hover {
