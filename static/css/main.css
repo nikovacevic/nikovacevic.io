@@ -70,7 +70,7 @@ pre code {
   overflow-x: scroll;
   background: #FCFCFC;
   border: 1px solid #EEE;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.4em;
 }
 table {
@@ -231,7 +231,7 @@ ul#nav-title-dropdown-menu li a:focus {
   max-width: 700px;
   margin: 60px auto 80px;
   padding: 0 15px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.7;
   color: #555;
 }
