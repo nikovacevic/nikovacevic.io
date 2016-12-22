@@ -527,7 +527,7 @@ Within the context of this article, a binomial coefficient enumerates the number
 
 ![Binomial coefficient][binomial-coefficient-formula]
 
-In a greater context, a binomial coefficient (n choose k) is "the coefficient of the x<sup>k</sup> term in the polynomial expansion of the binomial power (1 + x)<sup>n</sup>," according to Wikipedia<sup>[23]({{ relref "#f23" }})</sup>. [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle) is entirely composed of binomial coefficients.
+In a greater context, a binomial coefficient (n choose k) is "the coefficient of the x<sup>k</sup> term in the polynomial expansion of the binomial power (1 + x)<sup>n</sup>," according to Wikipedia<sup>[23]({{< relref "#f23" >}})</sup>. [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle) is entirely composed of binomial coefficients.
 
 <a name="stirling2">
 ### Stirling number of second order
