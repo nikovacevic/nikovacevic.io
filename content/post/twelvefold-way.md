@@ -527,7 +527,7 @@ Within the context of this article, a binomial coefficient enumerates the number
 
 ![Binomial coefficient][binomial-coefficient-formula]
 
-In a greater context, a binomial coefficient (n choose k) is "the coefficient of the x<sup>k</sup> term in the polynomial expansion of the binomial power (1 + x)<sup>n</sup>," according to Wikipedia<sup>[link](https://en.wikipedia.org/wiki/Binomial_coefficient)</sup>. [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle) is entirely composed of binomial coefficients.
+In a greater context, a binomial coefficient (n choose k) is "the coefficient of the x<sup>k</sup> term in the polynomial expansion of the binomial power (1 + x)<sup>n</sup>," according to Wikipedia<sup>[23]({{ relref "#f23" }})</sup>. [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle) is entirely composed of binomial coefficients.
 
 <a name="stirling2">
 ### Stirling number of second order
@@ -535,7 +535,7 @@ In a greater context, a binomial coefficient (n choose k) is "the coefficient of
 A Stirling number of the second order, denoted **S(n, k)**, counts the ways of partitioning **n** elements into **k** non-empty subsets.  Other common notations include  
 ![Stirling number of second order][stirling2nd]  
 
-They follow the following recurrence relation, courtesy of [UC Denver](http://www.math.ucdenver.edu/~hartkes/teaching/2007fallmath450/twelvefoldway.pdf) <sup>[link]({{< relref "#" >}})</sup>:  
+They follow the following recurrence relation, courtesy of [UC Denver](http://www.math.ucdenver.edu/~hartkes/teaching/2007fallmath450/twelvefoldway.pdf) <sup>[10]({{< relref "#f10" >}})</sup>:  
 
 **S(0, 0) = 1**  
 **S(n, 0) = 0, for n &geq; 1**  
@@ -611,6 +611,8 @@ Many branches of mathematics depend on a more broad and robust definition of an 
 21. <a name="f21" href="https://en.wikipedia.org/wiki/Iverson_bracket">Iverson bracket, *Wikipedia*</a>
 
 22. <a name="f22" href="https://en.wikipedia.org/wiki/Bell_number">Bell number, *Wikipedia*</a>
+
+23. <a name="f23" href="https://en.wikipedia.org/wiki/Binomial_coefficient">Binomial coefficient, *Wikipedia*</a>
 
 
 [2016-12-17-tw-01]: /images/2016-12-17-tw-01.jpg
