@@ -13,6 +13,12 @@
     <span class="article-date">{{ .Date.Format "January 2, 2006" }}</span>
     {{ end }}
 
+    <span class="article-tags">
+    {{ range .Params.tags }}
+      <span class="article-tag">{{ . }}</span>
+    {{ end }}
+    </span>
+
     <div class="article-content">
       {{ .Content }}
     </div>

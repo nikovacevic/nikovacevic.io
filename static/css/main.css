@@ -255,6 +255,18 @@ ul#nav-title-dropdown-menu li a:focus {
   color: #ccc;
 }
 
+.article-tags {
+  font-size: 12px;
+  font-weight: 700;
+  display: block;
+}
+.article-tag::after {
+  content: ", ";
+}
+.article-tag:last-of-type::after {
+  content: "";
+}
+
 .article-duration {
   margin-top: 12px;
   float: right;
@@ -332,8 +344,19 @@ ul#nav-title-dropdown-menu li a:focus {
   color: #ccc;
   font-size: 14px;
   padding: 5px 0;
-  margin-top: 5px;
+  /*margin-top: 5px;*/
   display: block;
+}
+
+.archive-item-tags {
+  font-size: 12px;
+  display: block;
+}
+.archive-item-tag::after {
+  content: ", ";
+}
+.archive-item-tag:last-of-type::after {
+  content: "";
 }
 
 .archive-item-link {
@@ -452,6 +475,10 @@ ul#nav-title-dropdown-menu li a:focus {
 
   .article-title {
     font-size: 42px;
+  }
+
+  .article-tags {
+    display: inline;
   }
 
   .article-duration {
