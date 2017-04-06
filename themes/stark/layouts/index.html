@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+    {{ range .Data.Pages.GroupByDate "2006"  }}
+      <h2>{{ .Key }}</h2>
+      {{ range where .Pages "Section" "post" }}
+        <article>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          <span>
+            {{- .Date.Format "January 2, 2006" -}}
+          </span>
+        </article>
+      {{ end }}
+    {{ end }}
+{{ partial "footer.html" . }}

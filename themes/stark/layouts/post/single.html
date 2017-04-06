@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+<article>
+  <h1>{{ .Title }}</h1>
+  {{ if eq .Section "post" }}
+    <span>{{ .Date.Format "January 1, 2006" }}</span>
+  {{ end }}
+  <div>
+    {{ .Content }}
+  </div>
+</article>
+{{ partial "footer.html" . }}

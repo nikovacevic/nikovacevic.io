@@ -1,7 +1,8 @@
 baseurl = "https://til.nikovacevic.io/"
 languageCode = "en-us"
 title = "TIL / Niko Kovacevic"
-theme = "hugo-lithium"
+#theme = "hugo-lithium"
+theme = "stark"
 
 [permalinks]
     post = "/:year/:month/:day/:title/"
