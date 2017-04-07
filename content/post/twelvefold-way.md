@@ -4,7 +4,7 @@ title = "Twelvefold Way"
 tags = ["combinatorics", "mathematics", ]
 +++
 
-<div style="position:fixed; right:6px; bottom:6px; padding: 4px 6px; background: #FFF; font-size: 80%; border-bottom: 1px solid #CCC; border-right: 1px solid #CCC; border-radius: 2px;">
+<div style="font-family: 'Cousine', monospace; position:fixed; right:6px; bottom:6px; padding: 4px 6px; background: #FFF; font-size: 80%; border-bottom: 1px solid #CCC; border-right: 1px solid #CCC; border-radius: 2px;">
 <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;A &nbsp;I &nbsp;S</i><br/>
 <i>&nbsp;&nbsp;f&nbsp;&nbsp;</i> <a href="#01">01</a> <a href="#02">02</a> <a href="#03">03</a><br/>
 <i>&nbsp;&nbsp;fS<sub>B</sub></i> <a href="#04">04</a> <a href="#05">05</a> <a href="#06">06</a><br/>

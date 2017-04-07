@@ -1,29 +1,32 @@
 baseurl = "https://til.nikovacevic.io/"
 languageCode = "en-us"
 title = "TIL / Niko Kovacevic"
-#theme = "hugo-lithium"
 theme = "stark"
 
 [permalinks]
-    post = "/:year/:month/:day/:title/"
-    page = "/:title/"
+  post = "/:year/:month/:day/:title/"
+  page = "/:title/"
 
-# TODO About
+[[menu.home]]
+  name = "TIL"
+  url = "/"
 
-[[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/nikovacevic"
-[[menu.main]]
-    name = "Strava"
-    url = "https://strava.com/athletes/6476954"
-[[menu.main]]
-    name = "Twitter"
-    url = "https://twitter.com/NikoKovacevic"
+[[menu.left]]
+  name = "Niko"
+  url = "https://nikovacevic.io/"
+
+[[menu.right]]
+  name = "GitHub"
+  url = "https://github.com/nikovacevic"
+[[menu.right]]
+  name = "StackOverflow"
+  url = "https://stackoverflow.com/users/4320971/niko-kovacevic"
+[[menu.right]]
+  name = "Strava"
+  url = "https://strava.com/athletes/6476954"
+[[menu.right]]
+  name = "Twitter"
+  url = "https://twitter.com/NikoKovacevic"
 
 [params]
-    description = "Niko Kovacevic"
-
-    [params.logo]
-    url = "niko.png"
-    width = 50
-    height = 50
+  description = "Niko Kovacevic"
