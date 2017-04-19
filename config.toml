@@ -1,6 +1,6 @@
 baseurl = "https://til.nikovacevic.io/"
 languageCode = "en-us"
-title = "TIL / Niko Kovacevic"
+title = "TIL"
 theme = "stark"
 
 [permalinks]
@@ -27,6 +27,3 @@ theme = "stark"
 [[menu.right]]
   name = "Twitter"
   url = "https://twitter.com/NikoKovacevic"
-
-[params]
-  description = "Niko Kovacevic"
