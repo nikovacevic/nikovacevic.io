@@ -38,12 +38,12 @@ a:hover,a:active {
   color: #1F719E;
 }
 
-h1 { color: #333; font-size: 1.8em; letter-spacing: 0.02em; margin: 1em 0 0.6em 0; }
-h2 { color: #333; font-size: 1.4em; letter-spacing: 0.02em; margin: 1em 0 0.6em 0; }
-h3 { color: #333; font-size: 1.2em; letter-spacing: 0.02em; margin: 0.8em 0 0.4em 0; }
-h4 { color: #333; font-size: 1.8em; letter-spacing: 0.02em; margin: 1em 0 0.6em 0; }
-h5 { color: #333; font-size: 1.8em; letter-spacing: 0.02em; margin: 1em 0 0.6em 0; }
-h6 { color: #333; font-size: 1.8em; letter-spacing: 0.02em; margin: 1em 0 0.6em 0; }
+h1 { color: #333; font-size: 1.8em; letter-spacing: 0.02em; line-height: 1.4; margin: 1em 0 0.6em 0; }
+h2 { color: #333; font-size: 1.4em; letter-spacing: 0.02em; line-height: 1.4; margin: 1em 0 0.6em 0; }
+h3 { color: #333; font-size: 1.2em; letter-spacing: 0.02em; line-height: 1.4; margin: 0.8em 0 0.4em 0; }
+h4 { color: #333; font-size: 1.0em; letter-spacing: 0.02em; line-height: 1.4; margin: 0.8em 0 0.4em 0; }
+h5 { color: #555; font-size: 1.0em; letter-spacing: 0.02em; line-height: 1.4; margin: 0.8em 0 0.4em 0; }
+h6 { color: #555; font-size: 1.0em; letter-spacing: 0.02em; line-height: 1.4; margin: 0.8em 0 0.4em 0; }
 
 ul,ol {
   margin: 0 0 1em 0;
@@ -52,7 +52,9 @@ ul,ol {
 ul {
   list-style-type: none;
 }
-li {}
+li {
+  margin-bottom: 4px;
+}
 li img {
   padding: 1em 1em 1em 0;
 }
