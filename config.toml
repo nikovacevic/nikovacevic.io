@@ -13,7 +13,7 @@ theme = "stark"
 
 [[menu.left]]
   name = "Niko"
-  url = "/niko-kovacevic"
+  url = "https://nikovacevic.io/"
 
 [[menu.right]]
   name = "GitHub"
