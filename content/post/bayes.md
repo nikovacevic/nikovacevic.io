@@ -24,9 +24,9 @@ If 1 in 2 had the disease, rather than 1 in 10,000, what could we say about Carl
 
 ![Prior: 1 in 2][02]
 
-We know that Carl tested positive, so determining his chances of being sick requires us to compare the ratio of shaded area in the left container to the total shaded area, yielding 1/101 &approx; 1%.
+We know that Carl tested positive, so determining his chances of being healthy (i.e. the test was a false positive) requires us to compare the ratio of shaded area in the left container (1) to the total shaded area (1 + 100), yielding 1/101 &approx; 1%. Intuitively, the 99% accurate test tells us Carl has a 99% chance of being sick.
 
-We can build intuition for Bayesian results by incrementally shifting the prior probabilities, resizing the two containers relative to each other. For instance, what if 1 in 11 people had the disease?
+From this base, we can build intuition for Bayesian results by incrementally shifting the prior probabilities, resizing the two containers relative to each other. For instance, what if 1 in 11 people had the disease?
 
 ![Prior: 1 in 11][03]
 
@@ -38,7 +38,7 @@ What if 1 in 101 people had the disease?
 
 ![Prior: 1 in 101][04]
 
-This is an inflection point. Now, the priors are weighted so disproportionally that the chance Carl is healthy, even given his positive test result, rises to 50%.
+This is an inflection point. The priors are weighted so disproportionally that the chance Carl is healthy, even given his positive test result, rises to 50%. It's easy to see why: there is exactly one shaded square on each side, meaning an equal chance of false positive and true positive.
 
 Given that slimmer chances of prior sickness result in slimmer chances of sickness, even give the positive test result, how low will we expect the chances the Carl is sick to drop once the prior probability of sickness is 1 in 10,000?
 
