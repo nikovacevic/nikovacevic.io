@@ -289,7 +289,3 @@ The prior is the probability, or "degree of belief", in an event A, before accou
 [03]: /images/bayes/03.jpg
 [04]: /images/bayes/04.jpg
 [05]: /images/bayes/05.jpg
-
-<script>
-
-</script>
