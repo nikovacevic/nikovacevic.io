@@ -13,25 +13,23 @@
   </head>
   <body>
     <header>
-      <nav>
-        <div style="display: flex; flex-flow: row;">
-          <div>
-            <button id="dropdown-button" data-menu-id="dropdown-menu" type="button" name="button">&#9776;</button>
-          </div>
-          <ul id="dropdown-menu" class="left">
-            {{ range .Site.Menus.home }}
-              <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-            {{ end }}
-            {{ range .Site.Menus.left }}
-              <li class="dropdown-li hidden"><a href="{{ .URL }}">{{ .Name }}</a></li>
-            {{ end }}
-          </ul>
-        </div>
-        <ul class="right">
+      <nav id="header-nav">
+        <ul id="primary-nav" class="left">
+          {{ range .Site.Menus.home }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+          {{ range .Site.Menus.left }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+        <ul id="secondary-nav" class="right hidden-sm left-sm">
           {{ range .Site.Menus.right }}
             <li><a href="{{ .URL }}">{{ .Name }}</a></li>
           {{ end }}
         </ul>
+        <button id="nav-button" data-nav-id="secondary-nav" type="button" name="button">
+          <span class="menu-icon">&#9776;</span>
+        </button>
       </nav>
     </header>
     <main>
