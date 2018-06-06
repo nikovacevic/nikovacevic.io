@@ -119,18 +119,18 @@ Yes!
 Our analysis of each case will cover a few things:  intuition about the requirements, cardinality of **B** and **L** (e.g. can we have any number of balls and labels, or do we require more of one than the other?), a formula for counting, and an example.
 
 <a name="01">
-# 01 Any f
+## 01 Any f
 </a>
 
 Each label can be placed on any ball with no rules. Because order matters, outputs **{a, b, c}** and **{c, b, a}** are distinguishable, so they count separately.  Consider labeling each ball, of which there are **B**, with any of the labels, of which there are **L**. You never run out of any one kind of label, and you don't have to use each label if you don't want to.
 
-## Formula
+### Formula
 ![01full][01full]
 
-## Cardinality
+### Cardinality
 Sets of any size will do!
 
-## Example
+### Example
 Given **B = {1, 2, 3}** and **L = {a, b}**, all possibilities of **f: B &rarr; L** are:  
 
 **{a, a, a}, {a, a, b}, {a, b, a}, {a, b, b},  
@@ -140,19 +140,19 @@ For each ball, of which there are **B = 3**, there are **L = 2** labels:
 ![01 example][01ex]
 
 <a name="02">
-# 02 Injective f
+## 02 Injective f
 </a>
 
 Order matters, so **{a, b, c}** and **{c, b, a}** are distinguishable and count separately. Once a label has been used, we cannot use it again. Consider labeling each ball, of which there are **B**, with any of the labels, of which we start with **L**. For the first label, we have **L** labels to choose from, but for the second we only have **L-1** options. With each label placed, the options reduce by one until all balls have been labeled, all labels have been used, or we simply decide to stop.
 
-## Formula
+### Formula
 ![02full][02full],
 which is commonly called a [falling factorial]({{< relref "#falling-factorial" >}}).
 
-## Cardinality
+### Cardinality
 Sets of any size will do!
 
-## Example
+### Example
 Given **L = {i, j}** and **B = {a, b, c, d}**, all possibilities of **f: L &rarr; B** are:  
 
 **{a, b}, {a, c}, {a, d},  
@@ -163,7 +163,7 @@ Given **L = {i, j}** and **B = {a, b, c, d}**, all possibilities of **f: L &rarr
 ![02 example][02ex]
 
 <a name="03">
-# 03 Surjective f
+## 03 Surjective f
 </a>
 This is best understood within the context of [09 Surjective S<sub>L</sub>&#8728;f]({{< relref "#09" >}}), which we will see later is equivalent to counting partitions of **B** into **X** sets, resulting in:
 
@@ -171,13 +171,13 @@ This is best understood within the context of [09 Surjective S<sub>L</sub>&#8728
 
 Starting from that point, we're left to account for the extra permutations of labels, un-doing the post-ordering step of [09]({{< relref "#09" >}}).  The number of permutations of **L** is **L!**, so we multiply by that term to yield out formula.
 
-## Formula
+### Formula
 ![03][03]
 
-## Cardinality
+### Cardinality
 Due to surjectivity, this requires **|B|&geq;|L|**.
 
-## Example
+### Example
 Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:  
 
 **{A, A, B, B}, {A, B, B, A}, {A, B, A, B}, {A, B, B, B}, {B, A, B, B}, {B, B, A, B}, {B, B, B, A},  
@@ -188,20 +188,20 @@ Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr
 ![03ex][03ex]
 
 <a name="04">
-# 04 Any f&#8728;S<sub>B</sub>
+## 04 Any f&#8728;S<sub>B</sub>
 </a>
 
 We aren't restricted by labeling rules, but we do recognize equivalence up to a permutation of balls (e.g. **{A, A, B} = {A, B, A} != {B, B, A}**). Counter-intuitively, case 01 will not help us much. However, understanding combinations<sup>[6]({{< relref "#f6" >}})</sup> with repetition---particularly how it differs from combinations without repetition (see [case 05]({{< relref "#05" >}}))--certainly will.
 
 *(Proof of the relationship between multicombinations and the binomial coefficient below is forthcoming. In the meantime, read Wikipedia's content specifically regarding [combinations with repetition](https://en.wikipedia.org/wiki/Combination#Number_of_combinations_with_repetition))*
 
-## Formula
+### Formula
 ![04][04]
 
-## Cardinality
+### Cardinality
 **(L+B-1) &geq; B** in order to get a valid result. Otherwise, the answer is 0.
 
-## Example
+### Example
 Given **B = {1, 2}** and **L = {A, B, C, D}**, all possibilities of **f: L &rarr; B** are:  
 
 **{A, A}, {A, B}, {A, C}, {A, D},  
@@ -216,20 +216,20 @@ Applying the formula yields the same result:
 *Notice the similarities (and key difference!) between this case and case 05, in both the structure of the example outcomes and the formula.*
 
 <a name="05">
-# 05 Injective f&#8728;S<sub>B</sub>
+## 05 Injective f&#8728;S<sub>B</sub>
 </a>
 
 Injectivity restricts us to use each label at most once. f&#8728;S<sub>B</sub> means that we pre-order the balls, which will differentiate this case from [case 02]({{< relref "#02" >}}). In our example, the pre-ordering will group **{a, c}** and **{c, a}** into one equivalence class.
 
 By this description, you might recognize this case:  enumerating the subsets of **L** with **B** elements. In common parlance, "**B** choose **L**", is represented by the [binomial coefficient]({{< relref "#binomial-coefficient" >}}).
 
-## Formula
+### Formula
 ![05full][05full]
 
-## Cardinality
+### Cardinality
 **L &geq; B** in order to get a valid result. Otherwise, the answer is 0.
 
-## Example
+### Example
 Given **B = {1, 2}** and **L = {A, B, C, D}**, all possibilities of **f: L &rarr; B** are:  
 
 **{A, B}, {A, C}, {A, D},  
@@ -239,12 +239,12 @@ Given **B = {1, 2}** and **L = {A, B, C, D}**, all possibilities of **f: L &rarr
 ![05 example][05ex]
 
 <a name="06">
-# 06 Surjective f&#8728;S<sub>B</sub>
+## 06 Surjective f&#8728;S<sub>B</sub>
 </a>
 
 All labels must be used at least once (surjective) and functions are equivalent up to permutations of balls (e.g. **{A, B, B, B} = {B, B, A, B} &ne; {A, A, B, A}**). It's plain to see that we must have more balls than labels for this to make sense.  Let's look at an example before diving into the intuition:
 
-## Example
+### Example
 Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:  
 
 **{A, A, A, B}, {A, A, B, B}, {A, B, B, B}**
@@ -253,10 +253,10 @@ We can show that this case is equivalent to counting [compositions]({{< relref "
 
 Phew! We won't go all the way to proving why compositions of **B** with **L** terms adhere to the given formula, but you can find a succinct, non-rigorous proof in the [Number of compositions section of Composition](https://en.wikipedia.org/wiki/Composition_(combinatorics)#Number_of_compositions)<sup>[7]({{< relref "#f7" >}})</sup> on Wikipedia. It's worth proving it, yourself, too!
 
-## Cardinality
+### Cardinality
 **|B|&geq;|L|**
 
-## Formula
+### Formula
 ![06][06]
 
 Applying the formula above to our example above, then reducing the binomial coefficient, we get the answer we expected:
@@ -264,7 +264,7 @@ Applying the formula above to our example above, then reducing the binomial coef
 ![06ex][06ex]
 
 <a name="07">
-# 07 Any S<sub>L</sub>&#8728;f
+## 07 Any S<sub>L</sub>&#8728;f
 </a>
 
 Any labeling will do, but functions are equivalent up to a permutation of labels, meaning we post-order function output (e.g. **{A, B, A} = {B, A, B} = {1, 2, 1}**, which is not equivalent to **{A, A, B} = {1, 1, 2}**).
@@ -273,15 +273,15 @@ For the sake of brevity, we can leverage the results from [case 09]({{< relref "
 
 As a result, we can simply ignore those "empty sets", and reduce this to the sum of the number of partitions of **B** into **x** subsets for **x from 0 to L**:
 
-## Formula
+### Formula
 ![07][07]
 
 *Note: when L=B, this formula gives the expression for the [Bell number]({{< relref "#bell-number" >}}), B<sub>B</sub>*
 
-## Cardinality
+### Cardinality
 Sets of any size will do. However, if **L &gt; B**, then when *k* grows to be greater than **B**, those terms of the sum will produce **0**.
 
-## Example
+### Example
 Given **B = {1, 2, 3, 4}** and **L = {A, B}**, the options (lines corresponding, respectively, to terms in the formula's sum) are:
 
 *none*,   
@@ -293,44 +293,44 @@ Using the formula, we yield:
 ![07 example][07ex]
 
 <a name="08">
-# 08 Injective S<sub>L</sub>&#8728;f
+## 08 Injective S<sub>L</sub>&#8728;f
 </a>
 
 An injective requirement means each label can correspond to at most one ball. The equivalence class, S<sub>L</sub>&#8728;f, will post-order the mapping (e.g. **{A, B, C} = {B, A, C}** under the post-ordering **{1, 2, 3)**).  Quite simply, this means that we'll try to map each ball to exactly one label, where the specific label is obscured by post-ordering.  If we are able to find a unique label per ball, then there is one possible mapping; otherwise, there are zero.
 
 ![08 illustration][08ill]
   
-## Formula
+### Formula
 ![08][08], which is known as an [Iverson bracket]({{< relref "#iverson-bracket" >}})
 
-## Cardinality
+### Cardinality
 In order to have one option, **L &geq; B**.
 
-## Example 1
+### Example 1
 Given **B = {1, 2, 3, 4}** and **L = {A, B}**, we yield:
 
 ![08 example 1][08ex1]
 
-## Example 2
+### Example 2
 Given **B = {1, 2}** and **L = {A, B, C, D}**, we yield:
 
 ![08 example 2][08ex2]
 
 <a name="09">
-# 09 Surjective S<sub>L</sub>&#8728;f
+## 09 Surjective S<sub>L</sub>&#8728;f
 </a>
 
 It'll help us to think of this as organizing balls into non-empty sets. *Surjective* means we have to use all the labels (no empty sets) and *S<sub>L</sub>&#8728;f* means that outcome are indistinguishable up to a post-ordering (e.g. **(A, A, B)** = **(B, B, A)** because both equal **(1, 1, 2)** after post-ordering).
 
 Those familiar with [partitions of sets]({{< relref "#partition" >}})<sup>[8]({{< relref "#f8" >}})</sup> will recognize this case as the number of partitions of **B** into **L** subsets, or the [Stirling number of the second kind]({{< relref "#stirling2" >}})<sup>[9]({{< relref "#f9" >}})</sup>.
 
-## Formula
+### Formula
 ![09][09]
 
-## Cardinality
+### Cardinality
 Due to surjectivity, this requires **|B|&geq;|L|**.
 
-## Example
+### Example
 Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:  
 
 **{A, A, B, B}, {A, B, B, A}, {A, B, A, B}, {A, B, B, B}, {B, A, B, B}, {B, B, A, B}, {B, B, B, A}** as illustrated:
@@ -342,7 +342,7 @@ This yields the final answer:
 ![09ex][09ex]
 
 <a name="10">
-# 10 Any S<sub>L</sub>&#8728;f&#8728;S<sub>B</sub>
+## 10 Any S<sub>L</sub>&#8728;f&#8728;S<sub>B</sub>
 </a>
 
 *We'll rely on our solution to [case 12]({{< relref "#12" >}}), so go read that if you haven't already!*
@@ -351,13 +351,13 @@ Here, unlike in case 12, we're not restricted to injective or surjective functio
 
 Given the knowledge covered in case 12, we know that **surjective** functions under equivalence **S<sub>L</sub>&#8728;f&#8728;S<sub>B</sub>** are enumerated equivalently to the number of partitions of **B** into **L** subsets.  Simply enough (and much like [case 07]({{< relref "#07" >}}) relative to [case 09]({{< relref "#09" >}})) we can just sum the enumerations for **k from 0 to L**, adding in all the cases excluded in case 12.
 
-## Formula
+### Formula
 ![10][10]
 
-## Cardinality
+### Cardinality
 Sets of any size will do. However, if **L &gt; B**, then when *k* grows to be greater than **B**, those terms of the sum will produce **0**.
 
-## Example
+### Example
 Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:  
 
 **{A, A, A, A}, {A, A, B, B}, {A, B, B, B}**
@@ -371,25 +371,25 @@ Our example above checks out with the formula:
 ![10ex][10ex]
 
 <a name="11">
-# 11 Injective S<sub>L</sub>&#8728;f&#8728;S<sub>B</sub>
+## 11 Injective S<sub>L</sub>&#8728;f&#8728;S<sub>B</sub>
 </a>
 
 If you understand [08]({{< relref "#08" >}}), then you already understand this case! The pre-ordering step that differentiates this case cannot add any possible outcomes, so it trivially reduces to the result of Injective S<sub>L</sub>&#8728;f.
 
 To see this reduction, consider the examples from 08:
 
-## Example 1
+### Example 1
 Given **B = {1, 2, 3, 4}** and **L = {A, B}**, we still cannot find a single mapping. We yield:
 
 ![11 example 1][11ex1]
 
-## Example 2
+### Example 2
 Given **B = {1, 2}** and **L = {A, B, C, D}**, the extra pre-order equivalence class means that mapping balls **(1, 2)** is equivalent to mapping **(2, 1)**. However, the post-ordering step makes both of those cases equivalent already.  Nothing changes, yielding:
 
 ![11 example 2][11ex2]
 
 <a name="12">
-# 12 Surjective S<sub>L</sub>&#8728;f&#8728;S<sub>B</sub>
+## 12 Surjective S<sub>L</sub>&#8728;f&#8728;S<sub>B</sub>
 </a>
 
 *It's useful to understand [09 Surjective S<sub>L</sub>&#8728;f]({{< relref "#09" >}}).*
@@ -400,17 +400,17 @@ As in [03]({{< relref "#03" >}}), [06]({{< relref "#06" >}}), and [09]({{< relre
 
 By enforcing both pre- and post-order, the seven cases in the example from [09]({{< relref "#09" >}}) collapse into only to groups that are fundamentally distinguishable by the size of the subsets, which is made more clear by their shapes.
 
-## Formula
+### Formula
 ![12][12], which is the number of [partitions]({{< relref "#partition" >}}) of **B** into **L** subsets.
 
 We're left with the final enumeration:
 
 ![12ex][12ex]
 
-## Cardinality
+### Cardinality
 Due to surjectivity, this requires **|B|&geq;|L|**.
 
-# Summary
+## Summary
 
 Given **f: B &rarr; L**, how many possible outcomes exist?
 
@@ -424,7 +424,7 @@ Given **f: B &rarr; L**, how many possible outcomes exist?
 A slightly different organization of this same information can be found from--among other places--UC Denver's Math 450<sup>[10]({{< relref "#f10" >}})</sup>.
 
 <a name="definitions">
-# Definitions
+## Definitions
 </a>
 
 <a name="function">
@@ -564,7 +564,7 @@ It sounds circular, but an equivalence relation partitions a set into equivalenc
 
 Many branches of mathematics depend on a more broad and robust definition of an equivalence relation, which I encourage you to explore! Wikipedia<sup>[4]({{< relref "#f4" >}})</sup> is a good place to start.
 
-# Credit, Reference, and Related Reading
+## Credit, Reference, and Related Reading
 
 *I must note here that I owe a lot of references to Wikipedia and its many authors for things that are laborious to reference at each mention, such as formulas and specific rigorous wording. I hope to always give all the credit due to that community.*
 

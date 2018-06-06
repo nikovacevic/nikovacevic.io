@@ -1,3 +1,14 @@
-<article>
-  <h3>{{ .Title }}</h3>
+<article class="index">
+  <span class="date d-none d-md-block">
+    {{- .Date.Format "January 2, 2006" -}}
+  </span>
+  <a href="{{ .Permalink }}" class="no-underline"><h3>{{ .Title }}</h3></a>
+  <p class="date d-md-none">
+    {{- .Date.Format "January 2, 2006" -}}
+  </p>
+  <div class="tags">
+    {{ range .Params.tags }}
+      <a class="tag" href="/tags/{{ . | urlize }}">{{ . }}</a>
+    {{ end }}
+  </div>
 </article>

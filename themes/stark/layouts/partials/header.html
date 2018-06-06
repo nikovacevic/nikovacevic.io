@@ -1,36 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ if ne .Title .Site.Title  }}
-      <title>{{ .Title }} | {{ .Site.Title }}</title>
-    {{ else }}
-      <title>{{ .Title }}</title>
+<header>
+  <nav>
+    <ul id="brand" class="left">
+      {{ range .Site.Menus.brand }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    <ul id="primary-nav" class="right d-none d-md-block">
+      {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+      <li class="nav-item"><a class="toggle-menu"><i class="fas fa-bars fa-lg"></i></a></li>
+    </ul>
+    <ul id="primary-nav" class="right d-md-none">
+      <li class="nav-item"><a class="toggle-menu"><i class="fas fa-bars fa-lg"></i></a></li>
+    </ul>
+  </nav>
+</header>
+<nav id="full-screen-nav">
+  <div></div>
+  <ul>
+    {{ range .Site.Menus.main }}
+      <li class="nav-item"><a href="{{ .URL }}">{{ .Name }}</a></li>
     {{ end }}
-    <link rel="stylesheet" href="/css/stark.css">
-    <link rel="icon" href="/favicon.ico?v=1" />
-  </head>
-  <body>
-    <header>
-      <nav id="header-nav">
-        <ul id="primary-nav" class="left">
-          {{ range .Site.Menus.home }}
-            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-          {{ end }}
-          {{ range .Site.Menus.left }}
-            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-          {{ end }}
-        </ul>
-        <ul id="secondary-nav" class="right hidden-sm left-sm">
-          {{ range .Site.Menus.right }}
-            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-          {{ end }}
-        </ul>
-        <button id="nav-button" data-nav-id="secondary-nav" type="button" name="button">
-          <span class="menu-icon">&#9776;</span>
-        </button>
-      </nav>
-    </header>
-    <main>
-      <div class="container">
+  </ul>
+  <div>
+    <p class="text-center centered-statement"><a target="_blank" href="mailto:hello@nikovacevic.io">hello@nikovacevic.io</a></p>
+    <ul class="nav justify-content-center">
+      {{ range .Site.Menus.social }}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ .URL }}"><i class="{{ .Pre }}"></i></a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</nav>

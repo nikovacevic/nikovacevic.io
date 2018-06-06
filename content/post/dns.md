@@ -6,7 +6,7 @@ tags = ["DNS", "networking", "domains"]
 
 If you're going to publish a website about learning, you're going to need to learn how to publish a website, right?  There is no better place to start than DNS.
 
-# Prelude
+## Prelude
 
 Before we get started, why would we want to learn about DNS in the first place?  Let's say you have a project; or rather, let's say I have a project called **TIL**.  Here is what I have right now:
 
@@ -21,29 +21,29 @@ When I talk about "publishing" my content, I mean I want to make it available fo
 
 So, how do we make the domain name, "nikovacevic.io", provide public access to a heretofore private, I.P.-accessible-only droplet?
 
-# DNS basics
+## DNS basics
 
 The **Domain Name System** we're discussing is a directory.  Remember when we memorized phone numbers in order to call people?  (Maybe not.)  Today, our phones' contact lists (and print phone directories before that) associate names with phone numbers, so we don't have to remember all those numbers.  DNS is the system that does that, but for web servers and their I.P. addresses.  Officially, we can refer to this process as a mapping between two namespaces:  the domain name hierarchy and the Internet Protocol address spaces<sup>[2]</sup>.
 
 That's great!  But how?
 
-## Responses
+### Responses
 
 Servers, aptly called **name servers**, do most of the work getting us from a name to a server.  Name servers may respond to queries by delegating to other name servers, or by returning answers.  Answers lie in **zone files**, which encode the actual mapping between name and number in individual records, as well as redirect information in the case that the given server and zone files do not have the answer to a query<sup>[1]</sup>.  At the top of this big hierarchy of name servers are **root servers**, which manage information about servers that manage [top-level domains](https://en.wikipedia.org/wiki/Top-level_domain) and can redirect queries to appropriate servers.
 
 So far we have a very basic understanding of DNS responses, but what about requests?  Who makes a DNS request, and how does that work?
 
-## Requests
+### Requests
 
 We'll call the requester the **client**, which can be an application accessing an API (e.g. GET api.example.com/users?id=123) or simply a person browsing the Internet (e.g. www.google.com).  Most clients cache the responses to their requests, so the first place a client will look for their DNS answer is local.  If the answer is not cached, then a request is sent to a **resolver**. Most resolvers simply communicate the query to a **recursive DNS server**, which queries other DNS servers until it gets a response or an error.
 
 At first glance, this seems really complex for a simple directory, right?  But this is the Internet.  The *entire Internet*.  Counter-intuitively, this redundancy and perceived complexity is where DNS derives its resiliency; that is, at each point in the web of queries being passed around, there is a good chance that the answer is cached.  For example, your local machine can probably resolve the majority of your queries instantly.  Even if you're accessing a domain for the first time, one of the servers along the way probably is not.  Therein lies the power:  rather than creating a bottleneck at a single omniscient location, DNS distributes its knowledge over a global surface congruent with the global network it describes.
 
-# Configuring DNS for a domain
+## Configuring DNS for a domain
 
 Now that we can appreciate the scope and magnificence of DNS, it's time to learn the nuts and bolts of actually configuring a domain name and a server (or droplet, in my case).  I'm sure there are a million ways to configure such things, but I only learned this today, so I'll show you just one.
 
-## WHOIS?
+### WHOIS?
 
 Who is?  Who am I?  One of many existential questions you may ask your terminal.  This is one it can actually answer.
 
@@ -63,13 +63,13 @@ NS1 and NS2 refer to the aforementioned name servers.  So, all we need to do is 
 ![name servers before][2016-09-16-dns-2]
 ![name servers after][2016-09-16-dns-3]
 
-## Record an "A record"
+### Record an "A record"
 
 Now that the name servers are pointing at Digital Ocean, we need Digital Ocean to be able to handle those requests.  We're just using IPv4, so we'll need to create an **A record**. I've also created one for the subdomain [til.nikovacevic.io](https://til.nikovacevic.io), because that's where I want TIL to live.  The @ record refers to the entire domain, [nikovacevic.io](https://nikovacevic.io), rather than the subdomain "til".
 
 ![A record][2016-09-16-dns-4]
 
-## Ping that domain!
+### Ping that domain!
 
 Return to your trusty terminal to see if it works:
 
@@ -86,17 +86,17 @@ PING nikovacevic.io (104.131.36.182): 56 data bytes
 
 As you can see, DNS has worked its magic and created an association in it's world-wide, distributed directory between nikovacevic.io and my droplet I.P. address (104.131.36.182).  The Internet is amazing, isn't it?
 
-# You might be wondering
+## You might be wondering
 
-## Is there only one DNS?
+### Is there only one DNS?
 In the sense that there is only one Internet, as we commonly refer to it (dark webs, private networks, etc. notwithstanding), there is only one DNS.  DNS does not necessarily have any bearing on non-Internet networks, though.
 
-## Who invented DNS, and who maintains it?
+### Who invented DNS, and who maintains it?
 Early predecessor directory systems have been around since the time of [ARPANET](https://en.wikipedia.org/wiki/ARPANET).  Basically, an entity called ICANN governs it, delegating authority to the maintainers of the DNS root servers.  From Wikipedia, regarding ICANN's responsibilities:
 
 > The right to use a domain name is delegated by domain name registrars which are accredited by the Internet Corporation for Assigned Names and Numbers (ICANN) or other organizations such as OpenNIC, that are charged with overseeing the name and number systems of the Internet. In addition to ICANN, each top-level domain (TLD) is maintained and serviced technically by an administrative organization, operating a registry.<sup>[3]</sup>
 
-# Credit, Reference, and Related Reading
+## Credit, Reference, and Related Reading
 
 1. [Digital Ocean: An Introduction to Managing DNS](https://www.digitalocean.com/community/tutorials/an-introduction-to-dns-terminology-components-and-concepts) is a great, deep-diving technical guide. I learned most from this series.
 
@@ -104,7 +104,7 @@ Early predecessor directory systems have been around since the time of [ARPANET]
 
 3. [ICANN](https://en.wikipedia.org/wiki/ICANN) and [IANA](https://en.wikipedia.org/wiki/Internet_Assigned_Numbers_Authority) are very interesting global organizations responsible for developing and maintaining DNS.
 
-# P.S.
+## P.S.
 As if by divine intervention, while writing this, HUGO experienced a DNS issue!  Maybe we can help with that.
 
 ![HUGO DNS fail][2016-09-16-dns-5]

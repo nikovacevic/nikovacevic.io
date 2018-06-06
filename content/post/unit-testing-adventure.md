@@ -10,7 +10,7 @@ When we discuss unit testing, we'll often give an example that simplifies the co
 
 Great, so you can implement unit tests to cover an entire project now, right? Maybe you can, but in a recent project that has been kicking around without unit tests for far too long, I found it was a little trickier than many unit testing strategies suggest. The following is an account of the process we developed to solve our particular problems.
 
-# Where did we start?
+## Where did we start?
 
 The client for this project is an auction house, but we'll leave it at that. The stack, as of the time I was invited to join the project, was nginx, MySQL, and PHP. The application at this point had about 100,000 users, 1,000,000 auctions, and tens of millions of bids. There are a few problems:
 
@@ -22,7 +22,7 @@ The client for this project is an auction house, but we'll leave it at that. The
 
 Given our problems, we started the only way we knew how.
 
-# First attempt
+## First attempt
 
 [PHPUnit](https://phpunit.de/) is a perfectly capable unit testing framework, ideal for our situation. I started with "Getting started" documentation and had the framework bootstrapped in no time at all. Thinking the rest of the process would be long, but simple, I began to write tests. However, each new function felt like a tug on a fishing line, quickly realizing I might be trying to reel in a whale instead of a trout.
 
@@ -56,13 +56,13 @@ At a glance, this should work. But what if the problem (and these problems had o
 
 With that, my hopes of "some quick unit tests without a database" were shattered. But good riddance to such a pathetic idea, anyways!
 
-# Database Blues
+## Database Blues
 
 Ok, then we'll use a testing database. I always knew it'd come to this, anyways, so let's get right into it, I thought. From the start, I knew we couldn't use a production backup for testing for several reasons:  first, it just takes too long to refresh, even if you have a backup handy; second, and more importantly, we can't assert against changing data. We needed data that was as sure as our in-function mock, but in a test-dedicated database.
 
 I'm embarrassed to share this next part because of how insane it now sounds. I started writing raw SQL, thinking, "I'll just spin up some tables and records". At a glance, that sounded equivalent to our mocking in PHP, but how wrong I was. After all, one of our problems that led us here was foreign key constraints. Well, if you want to mock an Auction, you're gonna need a Product. And if you wanna mock a Product, you're gonna need a Consignor. And if you wanna mock a Consignor, you're gonna throw yourself off the nearest bridge because you haven't even written a single test yet. I deleted the SQL file. Luckily, the next idea stuck.
 
-# Are you mocking me?
+## Are you mocking me?
 
 If only there was some service that could do all of this work for me, I thought. So I wrote a service, called `MockService`, to do just that.
 
@@ -125,7 +125,7 @@ The power of being able to call `newProduct()`, for instance, should be evident.
 
 So, I am wondering at this point, can we finally write 
 
-# Anatomy of a test
+## Anatomy of a test
 
 At the time of this writing, a simplified example of our test might look like this:
 
@@ -152,7 +152,7 @@ public function testPlaceBid() {
 
 It's barely more code to write than we had long ago, when I was young and naive. However, this code is solving a couple of problems: the `$auction` and `$user` have been inserted into the database and have IDs; we're taking it a step further, calling the service functions that retrieve them in the app code, in order to test that those services are setting all necessary fields; the language we're expressing our tests in is just as obvious as non-DB mocking would be, so we aren't sacrificing simplicity. As a bonus, we can call these mock functions ad nausuem (and with a randomized pattern) to create arbitrarily dense or sparse test databases with any quantifiable distribution of data; for example, twice as many active auctions as finished auctions, or vice-a-versa.
 
-# Where are we now? (Or where were we then?)
+## Where are we now? (Or where were we then?)
 
 The clock hasn't stopped since I posted this, so I'm sure we're running into a slew of new issues. (Maybe you, dear reader, have even predicted them at this point!) But here's where we ended up:
 

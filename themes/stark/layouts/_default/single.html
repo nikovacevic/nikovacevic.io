@@ -1,8 +1,27 @@
-{{ partial "header.html" . }}
-<article class="single">
-  <h1>{{ .Title }}</h1>
-  <div>
-    {{ .Content }}
-  </div>
-</article>
-{{ partial "footer.html" . }}
+<!DOCTYPE html>
+<html>
+  {{ partial "head.html" . }}
+  <body>
+    {{ partial "header.html" . }}
+      <main>
+        <section class="container">
+          <article class="single">
+            <div class="right">
+              <div>{{ .Date.Format "January 2, 2006" }}</div>
+              <div>{{ .ReadingTime }} minutes</div>
+            </div>
+            <div class="tags">
+              {{ range .Params.tags }}
+                <a class="tag" href="/tags/{{ . | urlize }}">{{ . }}</a>
+              {{ end }}
+            </div>
+            <h2>{{ .Title }}</h2>
+            <div>
+              {{ .Content }}
+            </div>
+          </article>
+        </section>
+      </main>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

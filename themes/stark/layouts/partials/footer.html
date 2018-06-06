@@ -1,9 +1,12 @@
-      </div>
-    </main>
-    <footer>
-      <p>Subscribe to <a href="/index.xml">RSS feed</a> | Made with <a href="https://gohugo.io/">Hugo</a></p>
-      <p>Copyright &copy; 2017 Niko Kovacevic<br/>The MIT License</br>Go ahead, it's free!</p>
-    </footer>
-    <script type="text/javascript" src="/js/ui.js"></script>
-  </body>
-</html>
+<footer>
+  <ul class="social-media-nav nav justify-content-center">
+    {{ range .Site.Menus.social }}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ .URL }}"><i class="{{ .Pre }} fa-lg"></i></a>
+      </li>
+    {{ end }}
+  </ul>
+  <p class="copyright">Subscribe to <a href="/index.xml">RSS feed</a> | Made with <a href="https://gohugo.io/">Hugo</a><br/>Copyright &copy; 2018 Niko Kovacevic</p>
+</footer>
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>

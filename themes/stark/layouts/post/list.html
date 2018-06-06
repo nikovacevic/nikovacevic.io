@@ -1,6 +1,16 @@
-{{ partial "header.html" . }}
-<h2 class="list">{{ .Title }}</h2>
-{{ range .Data.Pages }}
-  {{ .Render "li"}}
-{{ end }}
-{{ partial "footer.html" . }}
+<!DOCTYPE html>
+<html>
+  {{ partial "head.html" . }}
+  <body>
+    {{ partial "header.html" . }}
+      <main>
+        <section class="container">
+          <h2 class="list-key">{{ .Title }}</h2>
+          {{ range .Data.Pages }}
+            {{ .Render "li"}}
+          {{ end }}
+        </section>
+      </main>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

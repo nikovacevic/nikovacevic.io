@@ -14,7 +14,7 @@ But what does it guarantee, exactly?  What *can* it guarantee?  Are users vulner
 
 Before we get to these questions, we must address the purpose of security.
 
-# Why do we need security?
+## Why do we need security?
 
 In the most simple terms, information security refers to the protection of information from malicious use.  Wikipedia elaborates:
 
@@ -40,13 +40,13 @@ As *High Performance Browser Networking* (*HPBN*) states,
 
 With that security concept in mind, we can address the next most pressing issue: *what is protecting us from this cruel and elaborate world?*
 
-# Transport Layer Security!
+## Transport Layer Security!
 
 Transport Layer Security---also known as **TLS** or **SSL**---is the cryptographic protocol that provides **confidentiality**, **authenticity**, and **integrity** for Internet communication.  Whereas HTTP (Hypertext Transfer Protocol) establishes the procedure for sharing hypertext documents across the Internet, TSL (or SSL) establishes the procedure for securely communicating over a computer network, e.g. the Internet.
 
 TLS communication occurs by transmission of records using [symmetric encryption](https://en.wikipedia.org/wiki/Symmetric-key_algorithm)<sup>[6]</sup>, which relies on a shared secret key, known exclusively by the two communicating parties (henceforth the client and server, for our purposes).  How, then, do the client and server agree on a shared secret key?  In TLS, it's called the **handshake**, and it takes a dash of mathematical magic.
 
-## Interlude:  Public-key cryptography
+### Interlude:  Public-key cryptography
 
 If you need to share a message securely, but you first need to share a key securely, how could you possibly communicate the key securely?  If you had a way to send the key, why wouldn't you just send the message?  [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides the seemingly-miraculous transfer mechanism.  While we won't be able to explore all the details of public-key cryptography in this post, here are the (very) short answers to our two questions:
 
@@ -57,7 +57,7 @@ As far as the mechanics of public-key cryptography goes, you should know that it
 
 For a deeper dive on public key concepts and techniques, I highly recommend [Stanford's Cryptography I](https://www.coursera.org/learn/crypto) course on [Coursera](https://www.coursera.org), as well as [Art of the Problem](https://www.youtube.com/channel/UCotwjyJnb-4KW7bmsOoLfkg)'s [Public Key Cryptography: RSA Encryption Algorithm](https://www.youtube.com/watch?v=wXB-V_Keiu8) video lesson.
 
-## The Handshake
+### The Handshake
 
 Prior to the TLS handshake, the client and server establish a TCP connection with a [TCP handshake](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment) (SYN---SYN-ACK---ACK).  Then, the TLS handshake begins with a simple hello over the fresh TCP connection:
 
@@ -78,7 +78,7 @@ After step 3, the server might request a client SSL certificate, which operates 
 
 *Please note that this is an extremely brief and incomplete overview of a public-key cryptography concept that boasts many fascinating nuances beyond the scope of this post.*
 
-## The Tunnel
+### The Tunnel
 
 At this point, the client and server share a few things:
 
@@ -97,11 +97,11 @@ The aforementioned TLS Record protocol defines the organization of the following
 ![TLS Record][2016-10-03-ssl-3]
 *Image credit to [HPBN](https://hpbn.co/transport-layer-security-tls/) <sup>[2]</sup>*
 
-# TLS/SSL in Practice
+## TLS/SSL in Practice
 
 Now that the general process of TLS is clear, we can discuss how to go about using it in practice from both the client perspective and the server perspective.
 
-## Client-side: you, the user
+### Client-side: you, the user
 
 As complicated a topic as TLS can be, this one is simple.  In fact, as a user, there really isn't much for you to do besides making sure that the services you're using are serving their content over HTTPS.  If you're trying to access a website over HTTPS, but the connection is insecure, a good web browser will stop you right there.  Google Chrome, Firefox, and Safari all do just that.
 
@@ -111,21 +111,21 @@ To check who owns the certificate, click that little green lock and find out!  Y
 
 ![Check your SSL certificates][2016-10-03-ssl-4]
 
-## Server-side: you, the engineer
+### Server-side: you, the engineer
 
 Luckily for you, the engineer, the process is fairly simple as well.  You need to obtain a certificate and serve it, upon a client's request of an SSL connection.
 
 We'll avoid the how-to aspect of actually serving the certificate, which your server (e.g. nginx) should handle, but it's common to include such information in a server's config file.  Mine, for instance, looks like this:
 
 ```
-# SSL Certificates
+## SSL Certificates
 ssl_certificate     /etc/letsencrypt/live/nikovacevic.io/fullchain.pem;
 ssl_certificate_key /etc/letsencrypt/live/nikovacevic.io/privkey.pem;
 ```
 
 You'll notice the format here looks familiar: one public and one private.  So, how do you, the engineer, obtain one?
 
-## SSL Certificates
+### SSL Certificates
 
 Depending on your needs, you may need one of a few [types of certificates](https://en.wikipedia.org/wiki/Public_key_certificate#Validation_levels):
 
@@ -139,21 +139,21 @@ There are many Certificate Authorities from which to obtain an SSL cert; most of
 
 Let's Encrypt makes the process so simple that there is simply no excuse to serve or consume content over regular, old HTTP any more.
 
-# You might be wondering
+## You might be wondering
 
-## Why is "SSL" an abbreviation for Transport Layer Security?
+### Why is "SSL" an abbreviation for Transport Layer Security?
 
 TLS has a predecessor, Secure Sockets Layer.  The original SSL protocols were developed by Netscape in the mid-1990s.  Although TLS 1.0 was released in 1999, effectively spelling the end for the original SSL protocols, SSL 3.0 was not deprecated until 2015.
 
 Although SSL 1.0, 2.0, and 3.0 are all deprecated now, the initialization is not.  We use "SSL" and "TLS" interchangeably, except in specific cases where the distinction is useful.
 
-## Does TLS only protect HTTPS communication?
+### Does TLS only protect HTTPS communication?
 
 It does not! It was defined to abstractly protect an application-layer transport protocol.  TCP, which is the Internet's transport protocol, is only one such example.  *HPBN* relates another:
 
 > TLS was designed to operate on top of a reliable transport protocol such as TCP. However, it has also been adapted to run over datagram protocols such as UDP. The Datagram Transport Layer Security (DTLS) protocol, defined in RFC 6347, is based on the TLS protocol and is able to provide similar security guarantees while preserving the datagram delivery model.<sup>[2]</sup>
 
-# Credit, Reference, and Related Reading
+## Credit, Reference, and Related Reading
 
 1. [Wikipedia: Information security](https://en.wikipedia.org/wiki/Information_security)
 

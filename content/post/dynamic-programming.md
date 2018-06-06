@@ -13,11 +13,11 @@ Of course, dynamic programming demands some cleverness. It might be more fitting
 
 "Careful" could mean just about anything, so let's get specific. When can we use dynamic programming? Why is it so effective? How can we formulate DP approaches, given specific problem types?
 
-# Introduction
+## Introduction
 
 Let's first explore a simple example.
 
-## Fibonacci
+### Fibonacci
 
 Before delving into the full power of the approach, I present the pedestrian, canonical example:  [Fibonacci numbers](https://en.wikipedia.org/wiki/Fibonacci_number) <sup>5</sup>.  The nth Fibonacci number can be generated with a simple, recursive function. Here is a naïve version:
 
@@ -75,7 +75,7 @@ F(6) = F(5) + F(4) = 5 + 8 = 13
 
 The Fibonacci example is utterly digestible, but offers little excitement. However, it will help us to discuss the structure of problems similarly well-suited to dynamic programming solutions.
 
-# Identification
+## Identification
 
 We observed that the naïve, recursive Fibonacci algorithm repeats an exponential amount work because it re-calculates solutions to repetitive subproblems at different recursive levels. The dynamic programming solution bounds the exponential recursion tree with a linear one by remembering solutions to previous subproblems.
 
@@ -87,7 +87,7 @@ In the abstract, we will identify questions well-suited to dynamic programming b
 
 Whereas Fibonacci offers a rudimentary version of subproblems, in most cases, identifying subproblems does not come directly from the problem's definition.  Our next example requires more cleverness.
 
-## Coins: Minimum
+### Coins: Minimum
 
 > Given a monetary amount and a set of coins, each with unlimited quantity, find the combination of coins that gives exact change for amount with the minimum number of coins.
 
@@ -182,7 +182,7 @@ return Minimum[7] = 3
 
 As you can see, we have `N` steps, each with `C` operations, yielding polynomial time. The magic lies in transforming multiplication of `C` by itself `N` times (**C<sup>N</sup>**) into multiplying `C` by `N` (**CN**), flattening the exponential tree into a polynomial expression.
 
-# Correctness
+## Correctness
 
 It's clear, hopefully, that this approach is correct.  Seems logical enough, right?  But we don't care about coins---we care about dynamic programming.  Unfortunately, for other problems, correctness will not be so trivial to see.  So how can we prove correctness in general cases where dynamic programming seems like it applies?
 
@@ -194,13 +194,13 @@ Furthermore, because we are checking this property for all possible subproblem b
 
 Good work! So, what should we name this general correctness property?
 
-## Optimal substructure
+### Optimal substructure
 
 Sorry, it already has a name:  we've just discovered **[optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure)**. A problem fulfilling optimal substructure has an "optimal solution [that] can be constructed efficiently from optimal solutions of its subproblems" <sup>6</sup>.  That is, optimal substructure holds if a given optimal solution implies that the given subproblem solutions are also optimal.  Reference *[Dynamic Programming Solution to the Coin Changing Problem](http://www.ccs.neu.edu/home/jaa/CS7800.12F/Information/Handouts/dyn_prog.pdf)* <sup>7</sup> for a great example of a mathematical claim and proof of optimal substructure.
 
 Note that we proved optimal substructure for the coin problem. **It does not come for free because it does not hold for all problems.** Please reference Wikipedia for [problems with optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure#Problems_with_optimal_substructure) <sup>10</sup> and [problems without optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure#Problems_without_optimal_substructure) <sup>11</sup> for examples.
 
-# Recap!
+## Recap!
 
 It certainly seems like we've covered a lot of ground since we introduced Fibonacci.  The core concepts, though, are rather spare.
 
@@ -210,7 +210,7 @@ Dynamic programming techniques work because, without DP, the number of subproble
 
 Although there is no formula, per se, we can organize that knowledge into a general method.
 
-## General Method
+### General Method
 
 1. **Define the problem in terms of subproblems.** Enumerate these subproblems.
 
@@ -222,22 +222,22 @@ Although there is no formula, per se, we can organize that knowledge into a gene
 
 Although his numbered steps look quite a bit different, I highly recommend watching Erik Demaine's lectures for his interpretation of a general method.
 
-# Final exercise
+## Final exercise
 
 This one is for you! If you get it, you can also earn [Hacker Rank](https://www.hackerrank.com/challenges/ctci-coin-change) credits for it.
 
-## Coin Combinations
+### Coin Combinations
 
 > Given an amount, `N`, and a set of coins, `C = {c1, ..., cD}`, each with a distinct values, find and print the number of different ways you can make change for `N` if each coin is available in an infinite quantity.
 
 Good luck! If you need guidance (don't cheat), my solution is available on [Github](https://github.com/nikovacevic/algorithms1/blob/master/coins/coins.go).
 
-# You might be wondering
+## You might be wondering
 
-## Where does the name "dynamic programming" come from?
+### Where does the name "dynamic programming" come from?
 According to Erik Demaine, the name given by the inventor of dynamic programming, First Last, was meant to lend heft to his studies.  Apparently, it doesn't *mean* anything, but it *sounds* important, leaving him to safely pursue his research without having to justify its importance.  Anecdotal or otherwise, it makes for a good story.
 
-# Credit, Reference, and Related Reading
+## Credit, Reference, and Related Reading
 
 1. [Wikipedia: Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming)
 
@@ -257,9 +257,9 @@ According to Erik Demaine, the name given by the inventor of dynamic programming
 
 9. [Wikipedia: Mathematical induction](https://en.wikipedia.org/wiki/Mathematical_induction)
 
-10. [Wikipedia: Optimal substructure # problems with optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure#Problems_with_optimal_substructure)
+10. [Wikipedia: Optimal substructure ## problems with optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure#Problems_with_optimal_substructure)
 
-11. [Wikipedia: Optimal substructure # problems without optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure#Problems_without_optimal_substructure)
+11. [Wikipedia: Optimal substructure ## problems without optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure#Problems_without_optimal_substructure)
 
 [2016-11-04-dp-01]: /images/2016-11-04-dp-01.jpg
 [2016-11-04-dp-02]: /images/2016-11-04-dp-02.jpg
