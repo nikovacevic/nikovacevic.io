@@ -1,8 +1,9 @@
-+++
-date = "2016-12-21T09:35:06-07:00"
-title = "Twelvefold Way"
-tags = ["combinatorics", "mathematics", ]
-+++
+---
+date: "2016-12-21T09:35:06-07:00"
+title: "Twelvefold Way"
+tags: ["combinatorics","mathematics"]
+draft: false
+---
 
 <div style="font-family: 'Cousine', monospace; position:fixed; right:6px; bottom:6px; padding: 4px 6px; background: #FFF; font-size: 80%; border-bottom: 1px solid #CCC; border-right: 1px solid #CCC; border-radius: 2px;">
 <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;A &nbsp;I &nbsp;S</i><br/>

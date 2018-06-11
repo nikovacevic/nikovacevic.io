@@ -1,8 +1,9 @@
-+++
-date = "2016-10-03T16:21:41-06:00"
-title = "Transport Layer Security"
-tags = ["TLS", "SSL", "security", "networking", "certificates", "cryptography"]
-+++
+---
+date: "2016-10-03T16:21:41-06:00"
+title: "Transport Layer Security"
+tags: ["authentication","cryptography","networking","security"]
+draft: false
+---
 
 Maybe you've noticed it---that green padlock in your browser's address bar.
 

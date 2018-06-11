@@ -1,8 +1,9 @@
-+++
-date = "2017-04-29T19:30:00-06:00"
-title = "Bayes Theorem"
-tags = ["statistics","mathematics","rationality"]
-+++
+---
+date: "2017-04-29T19:30:00-06:00"
+title: "Bayes Theorem"
+tags: ["mathematics","rationality","statistics"]
+draft: false
+---
 
 A classic Bayesain example:  Carl visits a doctor. She tests Carl for a rare disease, which plagues 1 in 10,000 (0.01%) of the population. The test she administers will produce results such that 100% of positive results are true and 99% of negative results are true (i.e. there is a 1% rate of false positives among those without the disease). Carl tests positive. What is the probability that Carl has the rare disease?
 

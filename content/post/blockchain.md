@@ -1,8 +1,9 @@
-+++
-date = "2017-09-08T09:13:32-06:00"
-title = "Blockchain Basics"
-tags = ["blockchain","cryptocurrency","cryptography","mathematics"]
-+++
+---
+date: "2017-09-08T09:13:32-06:00"
+title: "Blockchain Basics"
+tags: ["blockchain","cryptography","mathematics"]
+draft: false
+---
 
 At the time of this writing, one {{< footref 1 "Bitcoin" >}} is worth 4269.99 USD. That price is up 1968.67 USD since last *month*. Four years ago today, Bitcoin was worth 100.52 USD, meaning the value has risen over 4000% in four years. In the same time period, the S&P 500 has risen from 1670.09 to 2434.19 USD, or 146%.
 

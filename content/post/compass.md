@@ -1,8 +1,9 @@
-+++
-date = "2017-04-19T18:10:15-06:00"
-title = "Compass Navigation"
-tags = ["navigation","outdoors","survival","trigonometry"]
-+++
+---
+date: "2017-04-19T18:10:15-06:00"
+title: "Compass Navigation"
+tags: ["mathematics","navigation","outdoors"]
+draft: false
+---
 
 I meet a lot of people who own a compass, but few who are well-versed in how to use one. Luckily, the geometric nature of compass navigation makes this not only a survival lesson, but a trigonometry lesson! Perhaps that's a stretch, but I make the rules here, so it counts.
 

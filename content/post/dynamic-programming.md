@@ -1,8 +1,9 @@
-+++
-date = "2016-11-04T15:54:37-06:00"
-title = "Dynamic Programming"
-tags = ["algorithms", "dynamic programming", "analysis"]
-+++
+---
+date: "2016-11-04T15:54:37-06:00"
+title: "Dynamic Programming"
+tags: ["algorithms","analysis"]
+draft: false
+---
 
 One of the first lessons taught about algorithms is to beware the brute force approach. There should be no need to search for a solution among all possibilities because a single, subtle path must exist.  This advice is useful, but some tasks defy the most complicated strategies yet yield to a simple, exhaustive exploration known as **[dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming)** <sup>1</sup>.
 

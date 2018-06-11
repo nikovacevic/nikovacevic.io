@@ -1,8 +1,9 @@
-+++
-date = "2017-09-01T15:02:30-06:00"
-title = "Unit Testing Adventure"
-tags = ["development", "testing", "php", "mysql"]
-+++
+---
+date: "2017-09-01T15:02:30-06:00"
+title: "Unit Testing Adventure"
+tags: ["development","testing"]
+draft: false
+---
 
 Unit testing is often presented as the idea of testing isolated modules of code with the intent to verify the accuracy of their behavior. Generally, the goal is to cover an entire code base so that developers can have some guarantee that their code works, even when parts of the code--especially those that have wide-ranging effects--have to be changed.
 
