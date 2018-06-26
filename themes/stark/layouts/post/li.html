@@ -5,7 +5,6 @@
   <a href="{{ .Permalink }}" class="no-underline"><h3>{{ .Title }}</h3></a>
   <p class="date d-md-none">
     {{- .Date.Format "January 2, 2006" -}}
-    {{ .ReadingTime }} minutes
   </p>
   <div class="tags">
     {{ range .Params.tags }}
