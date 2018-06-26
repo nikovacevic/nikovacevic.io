@@ -20,7 +20,7 @@ Got all that? Good, there's a little more.
 Every computer&mdash;or node&mdash;in the ecosystem keeps track of the entire blockchain history, back to the very first block. When a block is forged, everyone in the ecosystem is notified of this new block and is asked to add it to their chain. Hence, the blockchain is distributed&mdash;no single node defines the true state of affairs. Consensus is reached by the collective, not by a centralized authority. You should question the security properties of such a system, which we will briefly discuss soon.
 
 <div style="background: rgba(0,0,0,0.05); border-radius: 2px; padding: 20px 26px; color: #555555; font-weight: 300; margin-bottom: 1em; max-width: 100%; overflow-x: scroll;">
-  <h4><a href="#hash-functions" name="hash-functions">Cryptographic hash functions</a></h4>
+  <h5 id="hash-functions"><a href="#hash-functions">Cryptographic hash functions</a></h5>
   <p>The elegance of the blockchain is difficult to capture in a physical analogy because of the mathemagical properties of cryptographic hash functions. If you're totally unfamiliar, I encourage you to read this (and perhaps much more) before moving on.</p>
   <p>In short, a hash function generates a deterministic, collision-resistant value, given some data. Changing even a single bit of the input data will radically change the output hash value. For example, here are the hash values for the inputs "blip" and "clip", using the popular SHA256 hash function:</p>
   <p><code>SHA256("blip") = 4EF2018109FF8A6508F97C0A7B000FDDDA264207C9B03A4666741803981EAB8A</code></p>

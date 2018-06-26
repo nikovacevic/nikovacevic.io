@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto|Roboto+Mono|Noto+Serif:400i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700|Roboto|Roboto+Mono|Noto+Serif:400i');
 
 html {
   min-height: 100%;
@@ -19,6 +19,10 @@ body {
   line-height: 1.75;
   letter-spacing: 0.02em;
   transition: opacity 0.5s;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
 }
 body.loading {
   opacity: 0;
@@ -75,10 +79,19 @@ h2 { color: #303030; font-size: 2.0em; letter-spacing: 0.02em; line-height: 1.4;
 h2.list-key {
   color: #C0C0C0;
 }
-h3 { color: #303030; font-size: 1.6em; letter-spacing: 0.02em; line-height: 1.4; margin: 0.8em 0 0.4em 0; }
-h4 { color: #303030; font-size: 1.4em; letter-spacing: 0.02em; line-height: 1.4; margin: 0.8em 0 0.4em 0; }
-h5 { color: #606060; font-size: 1.2em; letter-spacing: 0.02em; line-height: 1.4; margin: 0.8em 0 0.4em 0; }
-h6 { color: #606060; font-size: 1.0em; letter-spacing: 0.02em; line-height: 1.4; margin: 0.8em 0 0.4em 0; }
+h3 { color: #303030; font-size: 1.6em; letter-spacing: 0.02em; line-height: 1.4; margin: 1em 0 0.4em 0; }
+h4 { color: #303030; font-size: 1.3em; letter-spacing: 0.02em; line-height: 1.4; margin: 1em 0 0.4em 0; }
+h5 { color: #303030; font-size: 1.1em; letter-spacing: 0.02em; line-height: 1.4; margin: 1em 0 0.4em 0; font-weight: 700; }
+h6 { color: #606060; font-size: 1.0em; letter-spacing: 0.02em; line-height: 1.4; margin: 1em 0 0.4em 0; }
+
+h1:before,h2:before,h3:before,h4:before,h5:before,h6:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: 60px;
+  margin-top: -60px;
+}
 
 ul,ol {
   margin: 0 0 1em 0;
@@ -288,6 +301,27 @@ main section.container:first-of-type {
 main img {
   max-width: 100%;
 }
+main a,
+main a:visited {
+  box-shadow: inset 0 -0.3em 0 rgba(0,0,0,0.08);
+  transition: all 0.2s ease-in-out;
+}
+main a:hover,
+main a:active {
+  text-decoration: none;
+  box-shadow: inset 0 -2.6em 0 rgba(0,0,0,0.08);
+}
+main a.tag:hover,
+main a.tag:active {
+  text-decoration: none;
+  box-shadow: inset 0 -2.6em 0 rgba(0,0,0,0.08);
+}
+main a.anchor {
+  display: block;
+  position: relative;
+  top: -80px;
+  visibility: hidden;
+}
 
 .footref {
   font-weight: 400;
@@ -347,6 +381,12 @@ article.index a:hover h3 {
 }
 article.index span.date {
   float: right;
+  top: 62px;
+  position: relative;
+}
+.reading-time,
+.word-count {
+  color: #C0C0C0;
 }
 article.index p.date {
   margin-bottom: 2px;

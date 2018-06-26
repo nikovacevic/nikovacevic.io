@@ -8,7 +8,8 @@
           <article class="single">
             <div class="right">
               <div>{{ .Date.Format "January 2, 2006" }}</div>
-              <div>{{ .ReadingTime }} minutes</div>
+              <div class="reading-time">{{ .ReadingTime }} minutes</div>
+              <div class="word-count">{{ .WordCount }} words</div>
             </div>
             <div class="tags">
               {{ range .Params.tags }}
