@@ -3,7 +3,12 @@
   {{ partial "head.html" . }}
   <body>
     {{ partial "header.html" . }}
-      <main class="loading">
+      <main>
+        {{ with .Site.GetPage "/about" }}
+          <section id="about" class="container">
+            {{ .Content }}
+          </section>
+        {{ end }}
         <section class="container">
           {{ range .Data.Pages.GroupByDate "2006"  }}
             <h2 class="list-key">{{ .Key }}</h2>

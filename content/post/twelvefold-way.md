@@ -1,7 +1,7 @@
 ---
 date: "2016-12-21T09:35:06-07:00"
 title: "Twelvefold Way"
-tags: ["combinatorics","mathematics"]
+tags: ["combinatorics","mathematics","number theory"]
 draft: false
 ---
 
@@ -79,11 +79,11 @@ By our most common definition, each function represents a distinct outcome. That
 
 2. Count the lists as **distinct up to a permutation of balls**. If the only thing distinguishing multiple outcomes is the order of the inputs (and thus the outputs), then only count those outcomes once.  In this paradigm we can convince ourselves that **(A, B)** and **(B, A)** are only different because of the order in which the inputs arrive (a permutation of balls).  Pragmatically, this means that we will **sort the output, then ignore duplicate results while counting**.  In the given example, **f<sub>3</sub> = f<sub>4</sub>** and **f<sub>5</sub> = f<sub>6</sub>**, leaving only four distinct functions.  Representing this pre-processing step, we will refer to this as **f&#8728;S<sub>B</sub>**.
 
-3. Count the lists as **distinct up to a permutation of labels**. Pretend that you don't already have an order of labels in mind before they come out of the function; rather, count them as they appear:  
-**(A, B)** is **(1, 2)** because you saw **A** first, then **B** second;  
-**(B, A)** is **(1, 2)** because you saw **B** first, then **A** second;  
-**(A, A)** is **(1, 1)** because you saw **A** first;  
-**(B, B)** is **(1, 1)** because you saw **B** first;  
+3. Count the lists as **distinct up to a permutation of labels**. Pretend that you don't already have an order of labels in mind before they come out of the function; rather, count them as they appear:
+**(A, B)** is **(1, 2)** because you saw **A** first, then **B** second;
+**(B, A)** is **(1, 2)** because you saw **B** first, then **A** second;
+**(A, A)** is **(1, 1)** because you saw **A** first;
+**(B, B)** is **(1, 1)** because you saw **B** first;
 Whereas equivalence relation 2 (above) counts equivalence with a pre-ordering, this concept counts equivalence with a post-ordering. In the given example, **f<sub>1</sub> = f<sub>2</sub>** and **f<sub>3</sub> = f<sub>4</sub> = f<sub>5</sub> = f<sub>6</sub>**, leaving only two distinct functions.  To represent the post-processing, we can call this option **S<sub>L</sub>&#8728;f**.
 
 4. Count the lists as **distinct up to a permutation of balls and labels**. This essentially amounts to pre- and post-ordering, then counting the results. For instance, **(A, B)** and **(B, A)** would both get pre-ordered into **(A, B)**, which would be post-ordered into **(1, 2)**. In the given example, **f<sub>1</sub> = f<sub>2</sub>** and **f<sub>3</sub> = f<sub>4</sub> = f<sub>5</sub> = f<sub>6</sub>**, leaving two distinct functions. Intuitively, we refer to this symbolically as **S<sub>L</sub>&#8728;f&#8728;S<sub>B</sub>**.
@@ -96,7 +96,7 @@ Richard Stanley comes home to his kids, One, Two, and Three, with four balls. Li
 
 1. No rules! Don't label any of the balls. Label each ball with each label. It doesn't matter!
 
-2. One-to-one (**injective**), in which each label is used at most once.  It is as if he only has one of each label.  Nobody gets more than one ball, but there is no guarantee of getting a ball.  
+2. One-to-one (**injective**), in which each label is used at most once.  It is as if he only has one of each label.  Nobody gets more than one ball, but there is no guarantee of getting a ball.
 
 3. Onto (**surjective**), in which each label gets used on at least one ball, but some might be used on more than one ball.  He's got stacks of labels, which is fortunate because each child demands a ball. They might even get more than one, each!
 
@@ -132,12 +132,12 @@ Each label can be placed on any ball with no rules. Because order matters, outpu
 Sets of any size will do!
 
 ### Example
-Given **B = {1, 2, 3}** and **L = {a, b}**, all possibilities of **f: B &rarr; L** are:  
+Given **B = {1, 2, 3}** and **L = {a, b}**, all possibilities of **f: B &rarr; L** are:
 
-**{a, a, a}, {a, a, b}, {a, b, a}, {a, b, b},  
+**{a, a, a}, {a, a, b}, {a, b, a}, {a, b, b},
 {b, a, a}, {b, a, b}, {b, b, a}, {b, b, b}**
 
-For each ball, of which there are **B = 3**, there are **L = 2** labels:  
+For each ball, of which there are **B = 3**, there are **L = 2** labels:
 ![01 example][01ex]
 
 <a name="02">
@@ -154,11 +154,11 @@ which is commonly called a [falling factorial]({{< relref "#falling-factorial" >
 Sets of any size will do!
 
 ### Example
-Given **L = {i, j}** and **B = {a, b, c, d}**, all possibilities of **f: L &rarr; B** are:  
+Given **L = {i, j}** and **B = {a, b, c, d}**, all possibilities of **f: L &rarr; B** are:
 
-**{a, b}, {a, c}, {a, d},  
-{b, a}, {b, c}, {b, d},  
-{c, a}, {c, b}, {c, d},  
+**{a, b}, {a, c}, {a, d},
+{b, a}, {b, c}, {b, d},
+{c, a}, {c, b}, {c, d},
 {d, a}, {d, b}, {d, c}**
 
 ![02 example][02ex]
@@ -179,9 +179,9 @@ Starting from that point, we're left to account for the extra permutations of la
 Due to surjectivity, this requires **|B|&geq;|L|**.
 
 ### Example
-Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:  
+Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:
 
-**{A, A, B, B}, {A, B, B, A}, {A, B, A, B}, {A, B, B, B}, {B, A, B, B}, {B, B, A, B}, {B, B, B, A},  
+**{A, A, B, B}, {A, B, B, A}, {A, B, A, B}, {A, B, B, B}, {B, A, B, B}, {B, B, A, B}, {B, B, B, A},
 {B, B, A, A}, {B, A, A, B}, {B, A, B, A}, {B, A, A, A}, {A, B, A, A}, {A, A, B, A}, {A, A, A, B},**
 
 *Notice that the first row of answers is identical to the entire answer set of [09]({{< relref "#09" >}}). The second row simply swaps A with B, represented by the leading 2! coefficient:*
@@ -203,11 +203,11 @@ We aren't restricted by labeling rules, but we do recognize equivalence up to a 
 **(L+B-1) &geq; B** in order to get a valid result. Otherwise, the answer is 0.
 
 ### Example
-Given **B = {1, 2}** and **L = {A, B, C, D}**, all possibilities of **f: L &rarr; B** are:  
+Given **B = {1, 2}** and **L = {A, B, C, D}**, all possibilities of **f: L &rarr; B** are:
 
-**{A, A}, {A, B}, {A, C}, {A, D},  
-{B, B}, {B, C}, {B, D},  
-{C, C}, {C, D},  
+**{A, A}, {A, B}, {A, C}, {A, D},
+{B, B}, {B, C}, {B, D},
+{C, C}, {C, D},
 {D, D}**
 
 Applying the formula yields the same result:
@@ -231,10 +231,10 @@ By this description, you might recognize this case:  enumerating the subsets of 
 **L &geq; B** in order to get a valid result. Otherwise, the answer is 0.
 
 ### Example
-Given **B = {1, 2}** and **L = {A, B, C, D}**, all possibilities of **f: L &rarr; B** are:  
+Given **B = {1, 2}** and **L = {A, B, C, D}**, all possibilities of **f: L &rarr; B** are:
 
-**{A, B}, {A, C}, {A, D},  
-{B, C}, {B, D},  
+**{A, B}, {A, C}, {A, D},
+{B, C}, {B, D},
 {C, D}**
 
 ![05 example][05ex]
@@ -246,7 +246,7 @@ Given **B = {1, 2}** and **L = {A, B, C, D}**, all possibilities of **f: L &rarr
 All labels must be used at least once (surjective) and functions are equivalent up to permutations of balls (e.g. **{A, B, B, B} = {B, B, A, B} &ne; {A, A, B, A}**). It's plain to see that we must have more balls than labels for this to make sense.  Let's look at an example before diving into the intuition:
 
 ### Example
-Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:  
+Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:
 
 **{A, A, A, B}, {A, A, B, B}, {A, B, B, B}**
 
@@ -285,8 +285,8 @@ Sets of any size will do. However, if **L &gt; B**, then when *k* grows to be gr
 ### Example
 Given **B = {1, 2, 3, 4}** and **L = {A, B}**, the options (lines corresponding, respectively, to terms in the formula's sum) are:
 
-*none*,   
-**{A, A, A, A},  
+*none*,
+**{A, A, A, A},
 {A, A, B, B}, {A, B, B, A}, {A, B, A, B}, {A, B, B, B}, {B, A, B, B}, {B, B, A, B}, {B, B, B, A}**
 
 Using the formula, we yield:
@@ -300,7 +300,7 @@ Using the formula, we yield:
 An injective requirement means each label can correspond to at most one ball. The equivalence class, S<sub>L</sub>&#8728;f, will post-order the mapping (e.g. **{A, B, C} = {B, A, C}** under the post-ordering **{1, 2, 3)**).  Quite simply, this means that we'll try to map each ball to exactly one label, where the specific label is obscured by post-ordering.  If we are able to find a unique label per ball, then there is one possible mapping; otherwise, there are zero.
 
 ![08 illustration][08ill]
-  
+
 ### Formula
 ![08][08], which is known as an [Iverson bracket]({{< relref "#iverson-bracket" >}})
 
@@ -332,7 +332,7 @@ Those familiar with [partitions of sets]({{< relref "#partition" >}})<sup>[8]({{
 Due to surjectivity, this requires **|B|&geq;|L|**.
 
 ### Example
-Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:  
+Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:
 
 **{A, A, B, B}, {A, B, B, A}, {A, B, A, B}, {A, B, B, B}, {B, A, B, B}, {B, B, A, B}, {B, B, B, A}** as illustrated:
 
@@ -359,7 +359,7 @@ Given the knowledge covered in case 12, we know that **surjective** functions un
 Sets of any size will do. However, if **L &gt; B**, then when *k* grows to be greater than **B**, those terms of the sum will produce **0**.
 
 ### Example
-Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:  
+Given **B = {1, 2, 3, 4}** and **L = {A, B}**, all possibilities of **f: L &rarr; B** are:
 
 **{A, A, A, A}, {A, A, B, B}, {A, B, B, B}**
 
@@ -395,7 +395,7 @@ Given **B = {1, 2}** and **L = {A, B, C, D}**, the extra pre-order equivalence c
 
 *It's useful to understand [09 Surjective S<sub>L</sub>&#8728;f]({{< relref "#09" >}}).*
 
-As in [03]({{< relref "#03" >}}), [06]({{< relref "#06" >}}), and [09]({{< relref "#09" >}}), we need to organize balls into non-empty sets (surjective), but by pre-ordering and post-ordering, we're left with the most general equivalence relation, which only really distinguishes the sizes of the sub-classes. This is easily expressed in 
+As in [03]({{< relref "#03" >}}), [06]({{< relref "#06" >}}), and [09]({{< relref "#09" >}}), we need to organize balls into non-empty sets (surjective), but by pre-ordering and post-ordering, we're left with the most general equivalence relation, which only really distinguishes the sizes of the sub-classes. This is easily expressed in
 
 ![12 illustration][12ill]
 
@@ -441,24 +441,24 @@ A function's domain is the set from which it maps. Given **f : A&rarr;B**, the d
 <a name="distinguishable">
 ### codomain
 </a>
-similar to **range**  
+similar to **range**
 A function's codomain is the set to which it maps. Given **f : A&rarr;B**, the codomain is the set **B**.
 
 <a name="cardinality">
 ### cardinality
 </a>
-Cardinality is the number of elements in the set, often denoted **|S|** for set **S**.  **|X| = m** and **|Y| = n**.  Consider assigning one [cardinal number](https://en.wikipedia.org/wiki/Cardinal_number) to each element.  
+Cardinality is the number of elements in the set, often denoted **|S|** for set **S**.  **|X| = m** and **|Y| = n**.  Consider assigning one [cardinal number](https://en.wikipedia.org/wiki/Cardinal_number) to each element.
 
 <a name="injective">
 ### injective
 </a>
-or **one-to-one**  
+or **one-to-one**
 An injective function maps each element of its domain uniquely to at most one element of its codomain. Some elements may not map to the codomain. No element in the codomain maps back to two elements in the domain.
 
 <a name="surjective">
 ### surjective
 </a>
-or **onto**  
+or **onto**
 A surjective function maps to all elements in its codomain. Unlike injective functions, surjective functions can map elements in the domain to multiple elements in the codomain.
 
 <a name="bijective">
@@ -472,14 +472,14 @@ Consider sets **A = {1, 2, 3}**, **B = {3, 1, 2}**, and **C = {3, 1, 2}**. **A**
 <a name="distinguishable">
 ### distinguishable
 </a>
-or **equal**, **strictly equal**  
+or **equal**, **strictly equal**
 Strict equality requires two sets to have the same elements in the same order. As such, **A** &ne; **B** = **C**. This relation is referred to as distinguishable because **A** is distinguishable from **B** and **C**.
 We can define distinguishability per direction, as well.  That is, mapping **X** to **Y**, we can require equality up to a permutation of Y only.  In that paradigm, **f : A &rarr; B** is equal, but **f<sup>-1</sup> : B &rarr; A** is not.
 
 <a name="indistinguishable">
 ### indistinguishable
 </a>
-or **equal up to a permutation**  
+or **equal up to a permutation**
 An equivalence relation can be called indistinguishable if order does not matter for either set. As such, **A** = **B** = **C**. This relation is referred to as indistinguishable because **A**, **B**, and **C** are indistinguishable from each other.
 
 <a name="permutation">
@@ -504,12 +504,12 @@ A partition of an integer **n** is a way of writing n as a sum of positive integ
 </a>
 A composition of an integer **n** is a way of writing **n** as an ordered sequence of integers. For example, the compositions of **3** are **3, 2+1, 2+1, 1+1+1**. A composition is an ordered version of a [partition]({{< relref "#partition" >}}).
 
-The number of compositions of **n** is given by:  
+The number of compositions of **n** is given by:
 ![Composition of n][composition-of-n]
 
-The number of compositions of **n** into **k** parts is given by:  
+The number of compositions of **n** into **k** parts is given by:
 ![Composition of n into k][composition-of-n-into-k]
-which is supported by the trivial fact that 
+which is supported by the trivial fact that
 
 <a name="factorial">
 ### factorial
@@ -533,30 +533,30 @@ In a greater context, a binomial coefficient (n choose k) is "the coefficient of
 <a name="stirling2">
 ### Stirling number of second order
 </a>
-A Stirling number of the second order, denoted **S(n, k)**, counts the ways of partitioning **n** elements into **k** non-empty subsets.  Other common notations include  
-![Stirling number of second order][stirling2nd]  
+A Stirling number of the second order, denoted **S(n, k)**, counts the ways of partitioning **n** elements into **k** non-empty subsets.  Other common notations include
+![Stirling number of second order][stirling2nd]
 
-They follow the following recurrence relation, courtesy of [UC Denver](http://www.math.ucdenver.edu/~hartkes/teaching/2007fallmath450/twelvefoldway.pdf) <sup>[10]({{< relref "#f10" >}})</sup>:  
+They follow the following recurrence relation, courtesy of [UC Denver](http://www.math.ucdenver.edu/~hartkes/teaching/2007fallmath450/twelvefoldway.pdf) <sup>[10]({{< relref "#f10" >}})</sup>:
 
-**S(0, 0) = 1**  
-**S(n, 0) = 0, for n &geq; 1**  
-**S(n, k) = 0, for n &leq; k**  
-**S(n, k) = (k)S(n−1, k) + S(n−1, k−1), for n &geq; k &geq; 1**  
+**S(0, 0) = 1**
+**S(n, 0) = 0, for n &geq; 1**
+**S(n, k) = 0, for n &leq; k**
+**S(n, k) = (k)S(n−1, k) + S(n−1, k−1), for n &geq; k &geq; 1**
 
 <a name="iverson-bracket">
 ### Iverson bracket
 </a>
-For denoting truth or falseness, the Iverson bracket applies a 1 to a true statement and 0 to a false statement. Symbolically, that can be written:  
+For denoting truth or falseness, the Iverson bracket applies a 1 to a true statement and 0 to a false statement. Symbolically, that can be written:
 ![Iverson bracket][iverson]
 
 <a name="bell-number">
 ### Bell number
 </a>
-The Bell numbers, indexed by **B<sub>n</sub>**, enumerate the partitions of a set, specifically of size **n**.  Bell numbers can be described by the following recurrence relation:  
+The Bell numbers, indexed by **B<sub>n</sub>**, enumerate the partitions of a set, specifically of size **n**.  Bell numbers can be described by the following recurrence relation:
 ![Bell number recurrence relation][bell-recurrence]
 
 or by the following summation of [Stirling numbers of the second kind]({{< relref "#stirling2" >}})
-![Bell number sum][bell-sum]  
+![Bell number sum][bell-sum]
 
 <a name="equivalence-relation">
 ### Equivalence relation
@@ -569,9 +569,9 @@ Many branches of mathematics depend on a more broad and robust definition of an 
 
 *I must note here that I owe a lot of references to Wikipedia and its many authors for things that are laborious to reference at each mention, such as formulas and specific rigorous wording. I hope to always give all the credit due to that community.*
 
-1. <a name="f1" href="https://en.wikipedia.org/wiki/Richard_P._Stanley">Richard P. Stanley, *Wikipedia*</a> 
+1. <a name="f1" href="https://en.wikipedia.org/wiki/Richard_P._Stanley">Richard P. Stanley, *Wikipedia*</a>
 
-2. <a name="f2" href="https://en.wikipedia.org/wiki/Twelvefold_way">Twelvefold way, *Wikipedia*</a> 
+2. <a name="f2" href="https://en.wikipedia.org/wiki/Twelvefold_way">Twelvefold way, *Wikipedia*</a>
 
 3. <a name="f3" href="https://en.wikipedia.org/wiki/Function_(mathematics)">Fuction (mathematics), *Wikipedia*</a>
 

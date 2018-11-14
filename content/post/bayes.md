@@ -1,7 +1,7 @@
 ---
 date: "2017-04-29T19:30:00-06:00"
 title: "Bayes Theorem"
-tags: ["mathematics","rationality","statistics"]
+tags: ["Go","mathematics","rationality","statistics"]
 draft: false
 ---
 
@@ -220,7 +220,7 @@ func main() {
 	pE := pEgivenH*pH + pEgivenNH*(1.0-pH)
 
 	events := []int{1, 1, 1, 0, 1, 1, 1, 1, 0, 1}
-  
+
 	for i, e := range events {
 		if e == 1 {
 			pH = bayesStep(pEgivenH, pH, pE)
@@ -248,13 +248,13 @@ Don't forget your {{< defref "prior" "priors" >}} and trust the numbers, not you
 <a name="posterior">
 ##### posterior
 </a>
-The posterior is the probability, or "degree of belief", in an event A, given an event B. Denoted P(A|B) in {{< defref "conditional-probability" "conditional probability" >}}.  
+The posterior is the probability, or "degree of belief", in an event A, given an event B. Denoted P(A|B) in {{< defref "conditional-probability" "conditional probability" >}}.
 *Counterpart to {{< defref "prior" "prior" >}}*
 
 <a name="prior">
 ##### prior
 </a>
-The prior is the probability, or "degree of belief", in an event A, before accounting for any additional knowledge. Denoted P(A).  
+The prior is the probability, or "degree of belief", in an event A, before accounting for any additional knowledge. Denoted P(A).
 *Counterpart to {{< defref "posterior" "posterior" >}}*
 
 ## Credit, Reference, Related

@@ -1,0 +1,18 @@
+.hidden {
+  display: none !important;
+}
+.transparent {
+  opacity: 0;
+}
+.opaque {
+  opacity: 1;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.no-scroll {
+  overflow: hidden;
+}

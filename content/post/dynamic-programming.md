@@ -1,7 +1,7 @@
 ---
 date: "2016-11-04T15:54:37-06:00"
 title: "Dynamic Programming"
-tags: ["algorithms","analysis"]
+tags: ["algorithms","analysis","Go"]
 draft: false
 ---
 
@@ -9,7 +9,7 @@ One of the first lessons taught about algorithms is to beware the brute force ap
 
 Of course, dynamic programming demands some cleverness. It might be more fitting to describe it as exploring every possibility, but only those that are necessary, while remembering everything, but only those things that are necessary. The goal, ultimately, is to bound the exploration of exponential possible answers with some polynomial expression.
 
-> *One perspective is that dynamic programming is approximately careful brute-force. <sup>2</sup>*  
+> *One perspective is that dynamic programming is approximately careful brute-force. <sup>2</sup>*
 <sub>Erik Demaine<sub>
 
 "Careful" could mean just about anything, so let's get specific. When can we use dynamic programming? Why is it so effective? How can we formulate DP approaches, given specific problem types?
@@ -50,7 +50,7 @@ func Fibonacci (n int, F []int) int {
 
 Identifying repetitive subproblems and memoizing the solutions to their subproblems, is the simple magic of dynamic programming. As the updated tree diagram exemplifies, we have `n` layers, but with only 2 constant time operations each, resulting in `Θ(n)` runtime.
 
-An equivalent way to express this algorithm, which reduces the overhead of function calls and the depth of the [call stack](), begins with the base case(s). **Bottom-up solutions** read more like inductive proofs: define a base case; define a relationship between subproblems and their super-problem that maintains correctness; iterate until reaching the given value of `n`. 
+An equivalent way to express this algorithm, which reduces the overhead of function calls and the depth of the [call stack](), begins with the base case(s). **Bottom-up solutions** read more like inductive proofs: define a base case; define a relationship between subproblems and their super-problem that maintains correctness; iterate until reaching the given value of `n`.
 
 ```
 func Fibonacci (n int) int {
@@ -162,7 +162,7 @@ n = 3
   Minimum[3] = Minimum[1] + 1 = 2
   c = 3
   Minimum[3] = Minimum[0] + 1 = 1
-  
+
 n = 4
   ...
 n = 5

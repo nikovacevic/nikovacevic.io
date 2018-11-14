@@ -2,24 +2,16 @@
   "baseurl": "/",
   "languageCode": "en-us",
   "title": "TIL",
+  "params": {
+    "SiteTitle": "TIL",
+    "AuthorName": "Niko Kovacevic"
+  },
   "theme": "stark",
   "permalinks": {
     "post": "/:year/:month/:day/:title/",
     "page": "/:title/"
   },
   "menu": {
-    "brand": [
-      {
-        "name": "TIL",
-        "url": "/"
-      }
-    ],
-    "main": [
-      {
-        "name": "NIKO",
-        "url": "http://nikovacevic.io/"
-      }
-    ],
     "social": [
       {
         "name": "GitHub",
@@ -32,14 +24,9 @@
         "url": "http://stackoverflow.com/users/4320971/niko-kovacevic"
       },
       {
-        "name": "Strava",
-        "pre": "fab fa-strava",
-        "url": "http://strava.com/athletes/6476954"
-      },
-      {
-        "name": "Twitter",
-        "pre": "fab fa-twitter",
-        "url": "http://twitter.com/NikoKovacevic"
+        "name": "Email",
+        "pre": "fas fa-envelope",
+        "url": "mailto::nikovacevic@gmail.com"
       }
     ]
   }

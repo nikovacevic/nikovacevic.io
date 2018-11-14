@@ -1,36 +1,3 @@
-<header>
-  <nav>
-    <ul id="brand" class="left">
-      {{ range .Site.Menus.brand }}
-        <li class="nav-item"><a href="{{ .URL }}">{{ .Name }}</a></li>
-      {{ end }}
-    </ul>
-    <ul id="primary-nav" class="right d-none d-md-block">
-      {{ range .Site.Menus.main }}
-        <li class="nav-item"><a href="{{ .URL }}">{{ .Name }}</a></li>
-      {{ end }}
-      <li class="nav-item"><a class="toggle-menu"><i class="fas fa-bars fa-lg"></i></a></li>
-    </ul>
-    <ul id="primary-nav" class="right d-md-none">
-      <li class="nav-item"><a class="toggle-menu"><i class="fas fa-bars fa-lg"></i></a></li>
-    </ul>
-  </nav>
+<header class="container">
+  <a class="no-underline" href="/"><h1>{{ .Site.Params.SiteTitle }}</h1></a>
 </header>
-<nav id="full-screen-nav">
-  <div></div>
-  <ul>
-    {{ range .Site.Menus.main }}
-      <li class="nav-item"><a href="{{ .URL }}">{{ .Name }}</a></li>
-    {{ end }}
-  </ul>
-  <div>
-    <p class="text-center centered-statement"><a target="_blank" href="mailto:nikovacevic@gmail.com">nikovacevic@gmail.com</a></p>
-    <ul class="nav justify-content-center">
-      {{ range .Site.Menus.social }}
-        <li class="nav-item">
-          <a class="nav-link" href="{{ .URL }}"><i class="{{ .Pre }}"></i></a>
-        </li>
-      {{ end }}
-    </ul>
-  </div>
-</nav>

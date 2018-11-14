@@ -1,7 +1,7 @@
 ---
 date: "2017-09-01T15:02:30-06:00"
 title: "Unit Testing Adventure"
-tags: ["development","testing"]
+tags: ["development","PHP","testing"]
 draft: false
 ---
 
@@ -39,16 +39,16 @@ Can unit testing protect us against unset fields? Not if we're mocking all of th
 public function testPlaceBid() {
     $auction = new Auction();
     $auction->setStartingBid(10.0);
-    
+
     $user = new User();
-    
+
     $bid = new Bid();
     $bid->setAuctionId($auction->getId());
     $bid->setUserId($user->getId());
     $bid->setAmount(12.0);
-    
+
     $response = $bid_service->placeBid($bid);
-    
+
     $this->assertEquals($response->message, "success");
 }
 ```
@@ -78,20 +78,20 @@ public function newAuction(Auction $a = null)
     if (is_null($a)) {
         $a = new Auction();
     }
-    
+
     // Set values on null fields
     if (is_null($a->getStartPrice())) {
         $a->setStartPrice(10.0);
     }
     // ... for all values
-    
+
     // Set foreign key fields
     if (is_null($a->getProductId())) {
         $p = $this->newProduct();
         $a->setProductId($p->getId());
     }
     // ... for all relationships
-    
+
     // Save the record and return it
     $a = $auction_service->save($a);
     return $a;
@@ -103,19 +103,19 @@ public function newUser(User $u = null, array $role_codes)
     if (is_null($u)) {
         $u = new User();
     }
-    
+
     // Set values on null fields
     if (is_null($a->getName())) {
         $a->setName("John Doe");
     }
     // ... for all values
-    
+
     // Create roles
     foreach ($role_codes as $rc) {
         $role = new Role($rc);
         $user_role = $user_service->addRole($role);
     }
-    
+
     // Save the record and return it
     $u = $user_service->save($u);
     return $u;
@@ -124,7 +124,7 @@ public function newUser(User $u = null, array $role_codes)
 
 The power of being able to call `newProduct()`, for instance, should be evident. Auctions aren't the only records that require Products, so we encapsulate that ability in a function. We also save time with shortcuts like the `$role_codes`, where we can give a shorthand for a greater structure that the function automates.
 
-So, I am wondering at this point, can we finally write 
+So, I am wondering at this point, can we finally write
 
 ## Anatomy of a test
 
@@ -136,17 +136,17 @@ public function testPlaceBid() {
     $auction->setStartingBid(10.0);
     $auction = $mock_service->newAuction($auction);
     $auction = $auction_service->getById($auction->getId());
-    
+
     $user = $mock_service->newUser(null, ['user', 'bidder']);
     $user = $user_service->getById($user->getId());
-    
+
     $bid = new Bid();
     $bid->setAuctionId($auction->getId());
     $bid->setUserId($user->getId());
     $bid->setAmount(12.0);
-    
+
     $response = $bid_service->placeBid($bid);
-    
+
     $this->assertEquals($response->message, "success");
 }
 ```
