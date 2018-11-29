@@ -42,5 +42,8 @@
         "url": "http://twitter.com/NikoKovacevic"
       }
     ]
-  }
+  },
+  "pygmentsCodefences": true,
+  "pygmentsUseClasses": true,
+  "pygmentsUseClassic": false
 }

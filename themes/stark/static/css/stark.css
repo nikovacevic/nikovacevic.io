@@ -3,11 +3,12 @@
 @import url('/css/fontawesome-all.min.css');
 
 @import url('/css/header.css');
+@import url('/css/syntax.css');
 @import url('/css/typography.css');
 @import url('/css/utilities.css');
 
 *, ::after, ::before {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -102,7 +103,6 @@ article.index {
   margin-bottom: 30px;
 }
 article.index a h3 {
-  margin-bottom: 8px;
   color: #444;
 }
 article.index a:hover h3 {

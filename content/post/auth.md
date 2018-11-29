@@ -19,7 +19,7 @@ Entire fields of study comprise each idea, but the fundamentals are relatively s
 
 The basic components of an authentication protocol are called **factors**, upon which something we'll call a **protocol** can be built.
 
-## Factors
+### Factors
 
 The term {{< footref 5 "two-factor, or multi-factor authentication" >}} is likely familiar to you&mdash;and if not, then it should be. In practice, it usually means requiring an additional step in an authentication process, like receiving and entering a code via text or, better, via a cryptographic one-time password generator (like [Google Authenticator](https://github.com/google/google-authenticator)). But the taxonomy of factors is more broad than password and text message. There are three categories of factors: **knowledge**, **ownership**, and **inherence**.
 
@@ -29,7 +29,7 @@ The term {{< footref 5 "two-factor, or multi-factor authentication" >}} is likel
 
 1. **Inherence** factors describe tokens an entity can prove to be or to do. In our home example, this might be a fingerprint or ocular scanner for entry, but a simpler physical example is a person's signature.
 
-## Protocols
+### Protocols
 
 While the list of factors may strike you as obvious, there are interesting schematic problems to solve. For instance, is username and password (and hopefully another factor) the only way to initially authenticate someone? And after you authenticate with a web application, how does it remember you? Here, we'll cover a few examples&mdash;some common and some not-so-common&mdash;answering those questions.
 
@@ -154,18 +154,18 @@ A header contains the token type (i.e. "JWT") and the algorithm used to sign the
 
 ###### JWT Payload
 
-The payload contains the claims, or key-value pairs of data, to be transferred between parties. This is the meat of a JWT, in that it contains user data. Claims are either ***registered**, **public**, or **private**. Registered claim types are defined in [RFC-7519 Section 4.1](https://tools.ietf.org/html/rfc7519#section-4.1) and include such data as the issuer, the subject, and the expiry. Public claims are similar but slightly more informal; they should be registered with [the IANA JSON Web Token Registry](https://www.iana.org/assignments/jwt/jwt.xhtml). Private claims are anything the users of a particular JWT agree to include&mdash;there are really no additional rules or conventions to private claims.
+The payload contains the claims, or key-value pairs of data, to be transferred between parties. This is the meat of a JWT, in that it contains user data. Claims are either **registered**, **public**, or **private**. Registered claim types are defined in [RFC-7519 Section 4.1](https://tools.ietf.org/html/rfc7519#section-4.1) and include such data as the issuer, the subject, and the expiry. Public claims are similar but slightly more informal; they should be registered with [the IANA JSON Web Token Registry](https://www.iana.org/assignments/jwt/jwt.xhtml). Private claims are anything the users of a particular JWT agree to include&mdash;there are really no additional rules or conventions to private claims.
 
 ```
 {
   // Registered
   "iss": "http://authentication.server.io",
   "sub": "347582345345",
-  
+
   // Public
   "name": "Bruce Schneier",
   "email": "bruce@schneier.io",
-  
+
   // Private
   "total_boss": true,
   "genius_level": "exceptional"
@@ -212,16 +212,16 @@ Anywhere you can authenticate yourself using your Google, Facebook, etc. account
 
 According to {{< footref 7 "RFC 6749" >}}, OAuth defines four roles:
 
-- **Resource owner**  
+- **Resource owner**
 An entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
 
-- **Resource server**  
+- **Resource server**
 The server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
 
-- **Client**  
+- **Client**
 An application making protected resource requests on behalf of the resource owner and with its authorization.  The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices).
 
-- **Authorization server**  
+- **Authorization server**
 The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
 
 First, an example:  Ron (resource owner and end-user) has a Hooli account. He's trying to register an account with a new application, Clynt (client). Instead of defining a username and password, Ron selects the option, "Use your Hooli account". Clynt requests authorization from Ron to obtain information from Hooli (authorization server); this could include access to Ron's email address, first name, and birthdate from a Hooli profile (resource server). Ron has to decide if Clynt should be allowed to obtain this data from Hooli or not. If he decides, "yes," then he authorizes the flow of information detailed below; that is the "Authorization Grant".
@@ -309,7 +309,7 @@ This one's a bit of a magic trick, at least until you understand which factors a
 |             |        2. Save public key as user's ID   |                |
 |             |        3. Send token back                |                |
 |             |                                          |                |
-|             |--(E)-- Request with token -------------->|                |--+     
+|             |--(E)-- Request with token -------------->|                |--+
 |             |                                          +----------------+  |
 |             |                                          +----------------+  |
 |             |<-(F)-- Protected resource ---------------|    Resource    |--+
@@ -346,7 +346,7 @@ Now SQRL has a domain-specific key pair and QR-encoded URL.
 
 #### C & D&mdash;Sign and validate
 
-SQRL then signs the entire URL (random nonce included) with the site-specific private key it just generated, then sends a response to the authentication server that includes the site-specific public key and the signature. 
+SQRL then signs the entire URL (random nonce included) with the site-specific private key it just generated, then sends a response to the authentication server that includes the site-specific public key and the signature.
 
 ![SQRL URL][07]
 

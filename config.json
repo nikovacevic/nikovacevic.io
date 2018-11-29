@@ -1,7 +1,7 @@
 {
   "baseurl": "/",
   "languageCode": "en-us",
-  "title": "TIL",
+  "title": "TIL | Niko Kovacevic",
   "params": {
     "SiteTitle": "TIL",
     "AuthorName": "Niko Kovacevic"
@@ -29,5 +29,8 @@
         "url": "mailto::nikovacevic@gmail.com"
       }
     ]
-  }
+  },
+  "pygmentsCodefences": true,
+  "pygmentsUseClasses": true,
+  "pygmentsUseClassic": false
 }

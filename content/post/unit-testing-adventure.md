@@ -35,7 +35,7 @@ Please pardon a (not-so-)quick design rant:  we sometimes pass entire objects of
 
 Can unit testing protect us against unset fields? Not if we're mocking all of the data on-the-spot. Here's a simplified example:
 
-```
+```php
 public function testPlaceBid() {
     $auction = new Auction();
     $auction->setStartingBid(10.0);
@@ -71,7 +71,7 @@ The idea was this: we have approximately 50 tables in our database. Between 10 a
 
 The epiphany was so simple it's stupid: this is all our app is doing. But rather than repurpose app code, it was faster to create functions that mock app code. For instance, two simplified functions would look like:
 
-```
+```php
 public function newAuction(Auction $a = null)
 {
     // If no auction is given, create one from defaults
@@ -130,7 +130,7 @@ So, I am wondering at this point, can we finally write
 
 At the time of this writing, a simplified example of our test might look like this:
 
-```
+```php
 public function testPlaceBid() {
     $auction = $new Auction();
     $auction->setStartingBid(10.0);
@@ -151,7 +151,7 @@ public function testPlaceBid() {
 }
 ```
 
-It's barely more code to write than we had long ago, when I was young and naive. However, this code is solving a couple of problems: the `$auction` and `$user` have been inserted into the database and have IDs; we're taking it a step further, calling the service functions that retrieve them in the app code, in order to test that those services are setting all necessary fields; the language we're expressing our tests in is just as obvious as non-DB mocking would be, so we aren't sacrificing simplicity. As a bonus, we can call these mock functions ad nausuem (and with a randomized pattern) to create arbitrarily dense or sparse test databases with any quantifiable distribution of data; for example, twice as many active auctions as finished auctions, or vice-a-versa.
+It's barely more code to write than we had long ago, when I was young and naive. However, this code is solving a couple of problems: the `$auction` and `$user` have been inserted into the database and have IDs; we're taking it a step further, calling the service functions that retrieve them in the app code, in order to test that those services are setting all necessary fields; the language we're expressing our tests in is just as obvious as non-DB mocking would be, so we aren't sacrificing simplicity. As a bonus, we can call these mock functions ad nauseam (and with a randomized pattern) to create arbitrarily dense or sparse test databases with any quantifiable distribution of data; for example, twice as many active auctions as finished auctions, or vice-a-versa.
 
 ## Where are we now? (Or where were we then?)
 
